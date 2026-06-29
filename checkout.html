@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Assinar — Notarium Academy</title>
+<link rel="icon" type="image/png" href="assets/brand/symbol-navy.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header solid">
+  <div class="wrap nav">
+    <a href="index.html" aria-label="Notarium Academy">
+      <img src="assets/brand/logo-white.png" alt="Notarium Academy" class="logo light">
+      <img src="assets/brand/logo-navy.png"  alt="Notarium Academy" class="logo dark">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#solucao">Plataforma</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="index.html#planos">Planos</a>
+      <a href="validar.html">Validar certificado</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="nav-login">Entrar</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-top" style="padding:104px 0 40px">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html#planos">Planos</a> <span>/</span> Assinatura</div>
+    <h1>Falta pouco para sua serventia estar em conformidade.</h1>
+  </div>
+</div>
+
+<section class="checkout">
+  <div class="wrap">
+    <div class="co-steps">
+      <span class="s done"><b>✓</b> Plano</span><span class="sep"></span>
+      <span class="s on"><b>2</b> Dados &amp; pagamento</span><span class="sep"></span>
+      <span class="s"><b>3</b> Confirmação</span>
+    </div>
+
+    <div class="checkout-grid">
+      <!-- COLUNA: formulário -->
+      <div>
+        <form id="coForm" novalidate>
+          <!-- Dados da serventia -->
+          <div class="co-card">
+            <h3><span class="ch-num">1</span>Dados da serventia</h3>
+            <p class="ch-sub">Quem assina e será responsável pela conta.</p>
+            <div class="field">
+              <label for="razao">Razão social / Nome da serventia</label>
+              <input id="razao" type="text" placeholder="Ex.: 2º Tabelionato de Notas de Jundiaí/SP" required>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="cns">CNS (opcional)</label><input id="cns" type="text" placeholder="11.224-3"></div>
+              <div class="field"><label for="cnpj">CNPJ</label><input id="cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0001-00" required></div>
+            </div>
+            <div class="field-row">
+              <div class="field"><label for="resp">Responsável</label><input id="resp" type="text" placeholder="Nome do titular ou preposto" required></div>
+              <div class="field"><label for="email">E-mail</label><input id="email" type="email" placeholder="contato@cartorio.com.br" required></div>
+            </div>
+          </div>
+
+          <!-- Pagamento -->
+          <div class="co-card">
+            <h3><span class="ch-num">2</span>Pagamento</h3>
+            <p class="ch-sub">Escolha como prefere pagar.</p>
+            <div class="pay-tabs">
+              <div class="pay-tab active" data-pay="pix"><span class="pi">⚡</span>PIX</div>
+              <div class="pay-tab" data-pay="card"><span class="pi">💳</span>Cartão</div>
+              <div class="pay-tab" data-pay="boleto"><span class="pi">🧾</span>Boleto</div>
+            </div>
+
+            <div class="pay-panel active" data-pay="pix">
+              <div class="pix-box">
+                <div class="pix-qr"></div>
+                <p style="font-size:.88rem;color:var(--muted)">Pague em segundos pelo app do seu banco.</p>
+                <div class="pix-code">00020126notarium-academy-pix-5204000053039865802BR…</div>
+              </div>
+            </div>
+            <div class="pay-panel" data-pay="card">
+              <div class="field"><label for="ccname">Nome impresso no cartão</label><input id="ccname" type="text" placeholder="Como está no cartão"></div>
+              <div class="field"><label for="ccnum">Número do cartão</label><input id="ccnum" type="text" inputmode="numeric" placeholder="•••• •••• •••• ••••">
+                <div class="card-brands"><span>VISA</span><span>MASTER</span><span>ELO</span><span>AMEX</span></div></div>
+              <div class="field-row">
+                <div class="field"><label for="ccval">Validade</label><input id="ccval" type="text" placeholder="MM/AA"></div>
+                <div class="field"><label for="cccvv">CVV</label><input id="cccvv" type="text" inputmode="numeric" placeholder="•••"></div>
+              </div>
+            </div>
+            <div class="pay-panel" data-pay="boleto">
+              <p style="font-size:.94rem;color:var(--text)">Geramos o boleto após a confirmação. Compensação em até 2 dias úteis; o acesso é liberado assim que o pagamento é identificado.</p>
+            </div>
+
+            <div class="demo-note">
+              <span>🔒</span>
+              <span><strong>Ambiente de demonstração.</strong> Esta é uma maquete do site — nenhum pagamento é processado e nenhum dado de cartão é coletado ou enviado.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- COLUNA: resumo do pedido -->
+      <aside>
+        <div class="order">
+          <h4>Resumo da assinatura</h4>
+          <div class="founder-flag" id="founderFlag" style="display:none">★ Programa Sócio Fundador · −40% travado por 24 meses</div>
+          <div class="plan-name" id="planName">Plano Pequeno</div>
+          <div class="plan-seats" id="planSeats">6–10 funcionários · catálogo completo</div>
+
+          <div class="seg" id="cycle">
+            <button data-cycle="mensal" class="on">Mensal</button>
+            <button data-cycle="anual">Anual <span class="save">15% off</span></button>
+          </div>
+
+          <div class="order-line"><span id="lineLabel">Plano Pequeno (mensal)</span><span id="lineBase">R$ 849</span></div>
+          <div class="order-line disc" id="discRow" style="display:none"><span id="discLabel">Desconto</span><span id="discVal">−R$ 0</span></div>
+          <div class="order-hr"></div>
+          <div class="order-total">
+            <div>
+              <div class="lbl" id="totalCycleLbl">Total mensal</div>
+              <div class="val"><span id="totalVal">R$ 849</span><small id="totalUnit">/mês</small></div>
+            </div>
+          </div>
+          <button type="submit" form="coForm" class="btn btn-lime" id="payBtn">Finalizar assinatura <span class="arrow">→</span></button>
+          <p class="guarantee">Cancele quando quiser · 7 dias de garantia</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('menuToggle')?.addEventListener('click',()=>document.body.classList.toggle('nav-mobile-open'));
+
+// ---- Catálogo de planos ----
+const PLANS={
+  social:{name:'Plano Social (FERC)',seats:'Titular + 1 · com Selo',m:199},
+  iniciante:{name:'Plano Iniciante',seats:'1–5 funcionários · catálogo completo',m:499},
+  pequeno:{name:'Plano Pequeno',seats:'6–10 funcionários · catálogo completo',m:849},
+  medio:{name:'Plano Médio',seats:'11–20 funcionários · catálogo completo',m:1349},
+  grande:{name:'Plano Grande',seats:'21–35 funcionários · catálogo completo',m:1999},
+  mega:{name:'Plano Mega',seats:'36–60 funcionários · catálogo completo',m:2799},
+};
+const params=new URLSearchParams(location.search);
+let key=params.get('plano'); if(!PLANS[key]) key='pequeno';
+let founder=params.get('fundador')==='1'||params.get('plano')==='fundador';
+let cycle='mensal';
+const P=PLANS[key];
+const BRL=n=>'R$ '+n.toLocaleString('pt-BR',{maximumFractionDigits:0});
+
+function render(){
+  document.getElementById('planName').textContent=P.name;
+  document.getElementById('planSeats').textContent=P.seats;
+  document.getElementById('founderFlag').style.display=founder?'flex':'none';
+  const annual = cycle==='anual';
+  let base = annual ? P.m*12 : P.m;           // preço cheio do ciclo
+  let disc = 0, parts=[];
+  if(annual){ disc += Math.round(base*0.15); parts.push('15% anual'); }
+  if(founder){ disc += Math.round(base*0.40); parts.push('40% fundador'); }
+  const total = base - disc;
+  document.getElementById('lineLabel').textContent=`${P.name} (${cycle})`;
+  document.getElementById('lineBase').textContent=BRL(base);
+  const dr=document.getElementById('discRow');
+  if(disc>0){dr.style.display='flex';document.getElementById('discLabel').textContent='Desconto ('+parts.join(' + ')+')';document.getElementById('discVal').textContent='−'+BRL(disc);}
+  else dr.style.display='none';
+  document.getElementById('totalCycleLbl').textContent= annual?'Total anual':'Total mensal';
+  document.getElementById('totalVal').textContent=BRL(total);
+  document.getElementById('totalUnit').textContent= annual?'/ano':'/mês';
+  // guarda p/ a confirmação
+  sessionStorage.setItem('nt_order',JSON.stringify({plan:P.name,seats:P.seats,cycle,founder,total,unit:annual?'/ano':'/mês'}));
+}
+// toggle de ciclo
+document.querySelectorAll('#cycle button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('#cycle button').forEach(x=>x.classList.remove('on'));
+  b.classList.add('on');cycle=b.dataset.cycle;render();
+}));
+// abas de pagamento
+document.querySelectorAll('.pay-tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.pay-tab').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.pay-panel').forEach(x=>x.classList.remove('active'));
+  t.classList.add('active');
+  document.querySelector('.pay-panel[data-pay="'+t.dataset.pay+'"]').classList.add('active');
+}));
+// submit (mock) -> confirmação
+document.getElementById('coForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!e.target.checkValidity()){e.target.reportValidity();return;}
+  window.location.href='assinatura-confirmada.html';
+});
+render();
+</script>
+</body>
+</html>

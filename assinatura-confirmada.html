@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Assinatura confirmada — Notarium Academy</title>
+<link rel="icon" type="image/png" href="assets/brand/symbol-navy.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header solid">
+  <div class="wrap nav">
+    <a href="index.html" aria-label="Notarium Academy">
+      <img src="assets/brand/logo-white.png" alt="Notarium Academy" class="logo light">
+      <img src="assets/brand/logo-navy.png"  alt="Notarium Academy" class="logo dark">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#solucao">Plataforma</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="index.html#planos">Planos</a>
+      <a href="validar.html">Validar certificado</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="nav-login">Entrar</a>
+    </div>
+  </div>
+</header>
+
+<section class="success">
+  <div class="wrap">
+    <div class="success-card">
+      <div class="success-check">✓</div>
+      <h1>Assinatura confirmada!</h1>
+      <p class="s-sub">Sua serventia agora tem acesso a 100% do catálogo da Notarium Academy. Enviamos a confirmação e a nota fiscal para o seu e-mail.</p>
+
+      <div class="s-receipt">
+        <div class="sr-row"><span class="k">Plano</span><span class="v" id="rPlan">Plano Pequeno</span></div>
+        <div class="sr-row"><span class="k">Equipe</span><span class="v" id="rSeats">6–10 funcionários</span></div>
+        <div class="sr-row"><span class="k">Ciclo</span><span class="v" id="rCycle">Mensal</span></div>
+        <div class="sr-row"><span class="k">Valor</span><span class="v" id="rTotal">R$ 849/mês</span></div>
+        <div class="sr-row"><span class="k">Pedido</span><span class="v">#NA-2026-0001</span></div>
+      </div>
+
+      <div class="s-next">
+        <h4>Seus próximos passos</h4>
+        <ul>
+          <li><span class="n">1</span><div><b style="font-family:'Sora'">Cadastre sua equipe</b> — adicione cada funcionário com cargo; as trilhas obrigatórias são atribuídas automaticamente.</div></li>
+          <li><span class="n">2</span><div><b style="font-family:'Sora'">Comece pelos cursos obrigatórios</b> — Compliance, LGPD e PLD/FT já liberados para todos.</div></li>
+          <li><span class="n">3</span><div><b style="font-family:'Sora'">Acompanhe pelo painel</b> — veja a conformidade da equipe em tempo real e gere o relatório de correição em 1 clique.</div></li>
+        </ul>
+      </div>
+
+      <div class="s-cta">
+        <a href="catalogo.html" class="btn btn-ghost">Ver o catálogo</a>
+        <a href="#" class="btn btn-lime">Acessar a plataforma <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// preenche o recibo com o pedido vindo do checkout
+try{
+  const o=JSON.parse(sessionStorage.getItem('nt_order')||'{}');
+  if(o.plan){
+    document.getElementById('rPlan').textContent=o.plan+(o.founder?' · Sócio Fundador':'');
+    document.getElementById('rSeats').textContent=(o.seats||'').split(' · ')[0];
+    document.getElementById('rCycle').textContent=o.cycle==='anual'?'Anual':'Mensal';
+    document.getElementById('rTotal').textContent=(o.total!=null?('R$ '+o.total.toLocaleString('pt-BR')):'')+(o.unit||'');
+  }
+}catch(e){}
+</script>
+</body>
+</html>

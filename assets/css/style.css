@@ -616,3 +616,70 @@ ul{margin:0;padding:0;list-style:none}
 .step-body div[style*="font-size:18px"],.step-body div[style*="font-size:19px"],
 .step-body div[style*="font-size:20px"],.step-body div[style*="font-size:21px"],
 .step-body div[style*="font-size:22px"],.step-body div[style*="font-size:24px"]{font-family:"Sora",sans-serif}
+
+/* ============================================================
+   CHECKOUT / FLUXO DE COMPRA
+   ============================================================ */
+.checkout{padding:48px 0 90px;background:var(--grey-soft)}
+.co-steps{display:flex;gap:8px;align-items:center;justify-content:center;margin-bottom:38px;font-family:"Sora";font-size:.82rem;color:var(--muted);flex-wrap:wrap}
+.co-steps .s{display:flex;align-items:center;gap:8px}
+.co-steps .s b{width:22px;height:22px;border-radius:50%;background:var(--grey);color:var(--muted);display:grid;place-items:center;font-size:.74rem;font-weight:700}
+.co-steps .s.on{color:var(--ink)} .co-steps .s.on b{background:var(--ink);color:var(--lime)}
+.co-steps .s.done b{background:var(--lime);color:var(--ink)}
+.co-steps .sep{width:26px;height:2px;background:var(--line)}
+.checkout-grid{display:grid;grid-template-columns:1.45fr .9fr;gap:30px;align-items:start;max-width:1040px;margin:0 auto}
+.co-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:30px 32px;margin-bottom:22px}
+.co-card h3{font-size:1.18rem;font-weight:700;margin-bottom:4px}
+.co-card .ch-sub{color:var(--muted);font-size:.9rem;margin-bottom:22px}
+.co-card .ch-num{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--ink);color:var(--lime);font-family:"Sora";font-weight:700;font-size:.78rem;margin-right:9px;vertical-align:middle}
+/* pagamento */
+.pay-tabs{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+.pay-tab{flex:1;min-width:120px;border:1.5px solid var(--line);border-radius:12px;padding:14px;cursor:pointer;text-align:center;font-family:"Sora";font-weight:600;font-size:.9rem;color:var(--muted);transition:.2s;background:#fff}
+.pay-tab .pi{font-size:1.3rem;display:block;margin-bottom:5px}
+.pay-tab:hover{border-color:var(--royal)}
+.pay-tab.active{border-color:var(--ink);background:var(--ink);color:#fff}
+.pay-panel{display:none}.pay-panel.active{display:block;animation:fadeUp .35s var(--ease)}
+.pix-box{text-align:center;padding:18px;border:1px dashed var(--line);border-radius:14px}
+.pix-qr{width:150px;height:150px;margin:0 auto 14px;border-radius:12px;background:
+  repeating-conic-gradient(var(--ink) 0% 25%, #fff 0% 50%) 0 0/22px 22px;border:6px solid var(--ink)}
+.pix-code{font-family:ui-monospace,monospace;font-size:.78rem;background:var(--grey-soft);border:1px solid var(--line);border-radius:9px;padding:9px 12px;color:var(--royal);word-break:break-all;margin-top:6px}
+.card-brands{display:flex;gap:8px;margin-top:6px}.card-brands span{font-size:.7rem;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:2px 7px;font-family:"Sora";font-weight:600}
+.demo-note{display:flex;gap:10px;align-items:flex-start;background:rgba(213,239,142,.18);border:1px solid var(--lime-deep);border-radius:11px;padding:12px 15px;font-size:.82rem;color:#3c4a1f;margin-top:18px}
+/* resumo do pedido */
+.order{position:sticky;top:96px;background:var(--ink);color:#fff;border-radius:18px;padding:26px 28px;overflow:hidden}
+.order::before{content:"";position:absolute;inset:0;opacity:.08;background-image:var(--pattern-lime);background-size:48px 48px;pointer-events:none}
+.order>*{position:relative;z-index:2}
+.order h4{color:#fff;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:16px}
+.order .plan-name{font-family:"Sora";font-weight:800;font-size:1.5rem;color:#fff;letter-spacing:-.02em}
+.order .plan-seats{color:rgba(255,255,255,.6);font-size:.86rem;margin-bottom:18px}
+.seg{display:flex;background:rgba(255,255,255,.08);border-radius:10px;padding:4px;margin-bottom:18px}
+.seg button{flex:1;border:0;background:transparent;color:rgba(255,255,255,.7);font-family:"Sora";font-weight:600;font-size:.82rem;padding:9px;border-radius:7px;cursor:pointer;transition:.2s}
+.seg button.on{background:var(--lime);color:var(--ink)}
+.seg button .save{font-size:.66rem;display:block;opacity:.8}
+.order-line{display:flex;justify-content:space-between;font-size:.9rem;color:rgba(255,255,255,.78);padding:7px 0}
+.order-line.disc{color:var(--lime)}
+.order-hr{height:1px;background:rgba(255,255,255,.14);margin:12px 0}
+.order-total{display:flex;justify-content:space-between;align-items:flex-end;margin-top:6px}
+.order-total .lbl{font-size:.86rem;color:rgba(255,255,255,.7)}
+.order-total .val{font-family:"Sora";font-weight:800;font-size:1.9rem;color:#fff;letter-spacing:-.02em}
+.order-total .val small{font-size:.9rem;font-weight:500;color:rgba(255,255,255,.6)}
+.founder-flag{display:flex;gap:9px;align-items:center;background:rgba(213,239,142,.14);border:1px solid rgba(213,239,142,.4);border-radius:10px;padding:10px 13px;font-size:.8rem;color:var(--lime);margin-bottom:16px;font-weight:500}
+.order .btn{width:100%;justify-content:center;margin-top:18px}
+.order .guarantee{text-align:center;font-size:.76rem;color:rgba(255,255,255,.55);margin-top:12px}
+/* página de sucesso */
+.success{padding:60px 0 90px;background:var(--grey-soft)}
+.success-card{max-width:680px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:22px;padding:50px 48px;text-align:center;box-shadow:var(--shadow-sm)}
+.success-check{width:84px;height:84px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-size:2.4rem;margin:0 auto 24px;box-shadow:0 14px 36px -12px rgba(184,223,92,.8)}
+.success-card h1{font-size:1.9rem;font-weight:800;margin-bottom:12px}
+.success-card .s-sub{color:var(--muted);font-size:1.05rem;max-width:480px;margin:0 auto 26px}
+.s-receipt{background:var(--grey-soft);border:1px solid var(--line);border-radius:14px;padding:22px 26px;text-align:left;margin:0 0 28px}
+.s-receipt .sr-row{display:flex;justify-content:space-between;font-size:.92rem;padding:8px 0;border-bottom:1px solid var(--line)}
+.s-receipt .sr-row:last-child{border:0}
+.s-receipt .sr-row .k{color:var(--muted)}.s-receipt .sr-row .v{font-family:"Sora";font-weight:600;color:var(--ink)}
+.s-next{text-align:left;margin:0 0 28px}
+.s-next h4{font-size:1rem;margin-bottom:14px}
+.s-next li{display:flex;gap:12px;align-items:flex-start;padding:8px 0;font-size:.94rem;color:var(--text)}
+.s-next .n{flex:none;width:26px;height:26px;border-radius:8px;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-family:"Sora";font-weight:700;font-size:.78rem}
+.success-card .s-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+@media (max-width:860px){.checkout-grid{grid-template-columns:1fr}.order{position:static}}
+@media (max-width:600px){.co-card{padding:24px 20px}.success-card{padding:36px 22px}}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Testar grátis — Notarium Academy</title>
+<meta name="description" content="Crie sua conta e faça gratuitamente o curso LGPD na Prática do Balcão, com certificado-amostra. Sem cartão de crédito.">
+<link rel="icon" type="image/png" href="assets/brand/symbol-navy.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header solid">
+  <div class="wrap nav">
+    <a href="index.html" aria-label="Notarium Academy">
+      <img src="assets/brand/logo-white.png" alt="Notarium Academy" class="logo light">
+      <img src="assets/brand/logo-navy.png"  alt="Notarium Academy" class="logo dark">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#solucao">Plataforma</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="index.html#planos">Planos</a>
+      <a href="validar.html">Validar certificado</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="nav-login">Entrar</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<section class="auth">
+  <div class="wrap">
+    <div class="auth-grid">
+      <!-- Painel da marca -->
+      <aside class="auth-aside">
+        <img src="assets/brand/symbol-lime.png" alt="" class="sym">
+        <h2>Comece pelo curso que já é obrigatório no seu balcão.</h2>
+        <p>Crie a conta e faça gratuitamente <strong style="color:#fff">Prevenção da violência contra a mulher (Prov. 222/2026)</strong> — com casos reais, quiz aplicado e certificado-amostra. Sem cartão, sem compromisso.</p>
+        <ul class="feat-list">
+          <li><span class="ic">✓</span> 100% em texto: leia entre dois atendimentos</li>
+          <li><span class="ic">✓</span> Casos práticos do balcão notarial e registral</li>
+          <li><span class="ic">✓</span> Certificado com hash de validação pública</li>
+          <li><span class="ic">✓</span> Veja por dentro antes de escolher um plano</li>
+        </ul>
+        <span class="free-tag">★ Grátis · 1 curso completo</span>
+      </aside>
+
+      <!-- Formulário -->
+      <div class="auth-form">
+        <h3>Criar conta</h3>
+        <p class="sub">Leva menos de um minuto. Você cai direto na primeira lição.</p>
+        <form id="signup" novalidate>
+          <div class="field">
+            <label for="nome">Nome completo</label>
+            <input id="nome" name="nome" type="text" placeholder="Ex.: Ana Paula Rezende" autocomplete="name" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="cpf">CPF</label>
+              <input id="cpf" name="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" required>
+            </div>
+            <div class="field">
+              <label for="cargo">Cargo na serventia</label>
+              <select id="cargo" name="cargo" required>
+                <option value="">Selecione…</option>
+                <option>Tabelião / Registrador (Titular)</option>
+                <option>Escrevente Notarial</option>
+                <option>Escrevente RCPN</option>
+                <option>Escriturário / Atendente</option>
+                <option>Estagiário</option>
+                <option>Terceirizado</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-mail profissional</label>
+            <input id="email" name="email" type="email" placeholder="voce@cartorio.com.br" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="serventia">Serventia (opcional)</label>
+            <input id="serventia" name="serventia" type="text" placeholder="Ex.: 2º Tabelionato de Notas de Jundiaí/SP">
+          </div>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Concordo com os Termos de Uso e a Política de Privacidade da Notarium Academy.</span>
+          </label>
+          <button type="submit" class="btn btn-lime">Criar conta e começar o curso <span class="arrow">→</span></button>
+        </form>
+        <p class="auth-foot">Já tem conta? <a href="#">Entrar</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.getElementById('menuToggle')?.addEventListener('click',()=>document.body.classList.toggle('nav-mobile-open'));
+// Mock: ao enviar, leva para a primeira lição do curso grátis
+document.getElementById('signup').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!this.checkValidity()){this.reportValidity();return;}
+  window.location.href='curso.html';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Validar certificado — Notarium Academy</title>
+<meta name="description" content="Confira a autenticidade de um certificado emitido pela Notarium Academy pelo código de validação ou QR Code.">
+<link rel="icon" type="image/png" href="assets/brand/symbol-navy.png">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header solid">
+  <div class="wrap nav">
+    <a href="index.html" aria-label="Notarium Academy">
+      <img src="assets/brand/logo-white.png" alt="Notarium Academy" class="logo light">
+      <img src="assets/brand/logo-navy.png"  alt="Notarium Academy" class="logo dark">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#solucao">Plataforma</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="index.html#planos">Planos</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="nav-login">Entrar</a>
+      <a href="cadastro.html" class="btn btn-lime">Testar grátis <span class="arrow">→</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="page-top">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Início</a> <span>/</span> Validar certificado</div>
+    <h1>Validação pública de certificado</h1>
+    <p>Para a Corregedoria, o titular ou qualquer interessado conferir a autenticidade de um certificado emitido pela Notarium Academy — sem precisar contatar a serventia.</p>
+  </div>
+</div>
+
+<section class="validate">
+  <div class="wrap">
+    <div class="validate-box">
+      <h3>Conferir um certificado</h3>
+      <p class="vsub">Informe o código de validação (hash SHA-256) impresso no rodapé do certificado, ou escaneie o QR Code.</p>
+      <div class="vsearch">
+        <input id="hash" type="text" placeholder="Ex.: 9f2c1a7e-b04d-…-2f0b" value="9f2c1a7e-b04d-SHA256-a1c8e3-2f0b">
+        <button class="btn btn-primary" id="check">Validar</button>
+      </div>
+      <div class="vor">ou</div>
+      <div class="qr-drop">
+        <div class="qic">▣</div>
+        Aponte a câmera para o <strong>QR Code</strong> do certificado<br>ou solte aqui uma imagem do código.
+      </div>
+    </div>
+
+    <!-- Resultado (mock, aparece ao validar) -->
+    <div class="vresult" id="result">
+      <div class="vhead">
+        <span class="vok">✓</span>
+        <div>
+          <b>Certificado autêntico</b>
+          <span>Emitido pela Notarium Academy · assinatura válida</span>
+        </div>
+      </div>
+      <div class="vbody">
+        <div class="vrow"><span class="k">Aluno</span><span class="v">Ana Paula Rezende</span></div>
+        <div class="vrow"><span class="k">CPF</span><span class="v">***.456.789-**</span></div>
+        <div class="vrow"><span class="k">Curso</span><span class="v">LGPD na Prática do Balcão</span></div>
+        <div class="vrow"><span class="k">Carga horária</span><span class="v">4 horas</span></div>
+        <div class="vrow"><span class="k">Aproveitamento</span><span class="v">100%</span></div>
+        <div class="vrow"><span class="k">Serventia</span><span class="v">2º Tab. de Notas de Jundiaí/SP</span></div>
+        <div class="vrow"><span class="k">Emissão</span><span class="v">12/06/2026</span></div>
+        <div class="vrow"><span class="k">Curadoria acadêmica</span><span class="v">Notarium Academy · autoassinado</span></div>
+        <div class="vrow"><span class="k">Hash SHA-256</span><span class="v mono">9f2c1a7e-b04d-…-2f0b</span></div>
+      </div>
+    </div>
+
+    <p class="center" style="margin-top:26px;color:var(--muted);font-size:.86rem;max-width:560px">
+      Cada certificado tem um hash único e imutável. Se o conteúdo for adulterado, a validação falha — garantindo a integridade da evidência apresentada em correição.
+    </p>
+  </div>
+</section>
+
+<script>
+document.getElementById('menuToggle')?.addEventListener('click',()=>document.body.classList.toggle('nav-mobile-open'));
+document.getElementById('check').addEventListener('click',()=>{
+  const r=document.getElementById('result');
+  r.classList.add('show');
+  r.scrollIntoView({behavior:'smooth',block:'center'});
+});
+</script>
+</body>
+</html>

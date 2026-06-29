@@ -587,3 +587,32 @@ ul{margin:0;padding:0;list-style:none}
 .step-body>div:first-child{margin-top:0 !important}
 /* boxes com borda lateral ink continuam com texto escuro no corpo claro */
 .step-body [style*="border-left:4px solid #131335"]{color:#131335}
+
+/* ---------- Quiz interativo ---------- */
+.qz-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 30px;margin:8px 0}
+.qz-card>h2,.qz-card>h3{font-size:1.15rem !important;color:var(--ink) !important;margin:0 0 6px !important;font-weight:700}
+.qz{padding:22px 0;border-bottom:1px dashed var(--line)}
+.qz:last-child{border-bottom:0;padding-bottom:4px}
+.qz-q{font-family:"Sora";font-weight:700;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.qz-stem{font-size:1rem;font-weight:500;color:var(--ink);margin:9px 0 16px;line-height:1.5}
+.qz-opts{display:grid;gap:10px}
+.qz-opt{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 16px;cursor:pointer;font-family:"Inter";font-size:.95rem;color:var(--text);transition:border-color .18s,background .18s}
+.qz-opt:hover:not([disabled]){border-color:var(--royal);background:var(--grey-soft)}
+.qz-let{font-family:"Sora";font-weight:700;color:var(--royal);flex:none;min-width:16px}
+.qz-txt{line-height:1.5}
+.qz-opt.correct{border-color:#2d7d4f;background:#eaf6ee}
+.qz-opt.correct .qz-let{color:#2d7d4f}
+.qz-opt.correct .qz-let::before{content:"✓ "}
+.qz-opt.wrong{border-color:#d4584a;background:#fdeeec}
+.qz-opt.wrong .qz-let{color:#d4584a}
+.qz-opt.wrong .qz-let::before{content:"✕ "}
+.qz-opt[disabled]{cursor:default}
+.qz-reason{display:none;margin-top:13px;background:#eaf0f8;border-radius:10px;padding:14px 18px;font-size:.92rem;color:#33344a;line-height:1.55}
+.qz.revealed .qz-reason{display:block;animation:fadeUp .35s var(--ease)}
+.qz-rlabel{display:block;font-family:"Sora";font-weight:700;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--royal);margin-bottom:6px}
+.qz-hint{font-size:.82rem;color:var(--muted);font-style:italic;margin-top:10px}
+
+/* pseudo-títulos do conteúdo importado → Sora (apenas tamanhos de título) */
+.step-body div[style*="font-size:18px"],.step-body div[style*="font-size:19px"],
+.step-body div[style*="font-size:20px"],.step-body div[style*="font-size:21px"],
+.step-body div[style*="font-size:22px"],.step-body div[style*="font-size:24px"]{font-family:"Sora",sans-serif}

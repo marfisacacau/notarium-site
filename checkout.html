@@ -137,6 +137,25 @@
 <script>
 document.getElementById('menuToggle')?.addEventListener('click',()=>document.body.classList.toggle('nav-mobile-open'));
 
+// ---- Integração Pagar.me ----
+// Preencha quando o backend estiver pronto. Vazio = modo demonstração (sem cobrança).
+const PAGARME={
+  publicKey:'',  // pk_test_... ou pk_... (pode ficar no cliente)
+  fnUrl:'',      // URL da Edge Function: https://<projeto>.supabase.co/functions/v1/pagarme-checkout
+};
+async function tokenizeCard(){
+  const exp=(document.getElementById('ccval').value||'').split('/');
+  const card={number:(document.getElementById('ccnum').value||'').replace(/\s/g,''),
+    holder_name:document.getElementById('ccname').value||'',
+    exp_month:(exp[0]||'').trim(), exp_year:(exp[1]||'').trim(),
+    cvv:document.getElementById('cccvv').value||''};
+  const r=await fetch(`https://api.pagar.me/core/v5/tokens?appId=${PAGARME.publicKey}`,
+    {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:'card',card})});
+  const d=await r.json();
+  if(!r.ok||!d.id) throw new Error(d?.message||'Não foi possível validar o cartão.');
+  return d.id;
+}
+
 // ---- Catálogo de planos ----
 const PLANS={
   social:{name:'Plano Social (FERC)',seats:'Titular + 1 · com Selo',m:199},
@@ -186,11 +205,61 @@ document.querySelectorAll('.pay-tab').forEach(t=>t.addEventListener('click',()=>
   t.classList.add('active');
   document.querySelector('.pay-panel[data-pay="'+t.dataset.pay+'"]').classList.add('active');
 }));
-// submit (mock) -> confirmação
-document.getElementById('coForm').addEventListener('submit',e=>{
+// submit -> Pagar.me (ou demonstração)
+document.getElementById('coForm').addEventListener('submit',async e=>{
   e.preventDefault();
   if(!e.target.checkValidity()){e.target.reportValidity();return;}
-  window.location.href='assinatura-confirmada.html';
+  const btn=document.getElementById('payBtn');
+  const method=document.querySelector('.pay-tab.active')?.dataset.pay||'pix';
+
+  // Modo demonstração: sem chaves configuradas, segue para a confirmação (sem cobrar)
+  if(!PAGARME.publicKey||!PAGARME.fnUrl){
+    window.location.href='assinatura-confirmada.html';return;
+  }
+
+  btn.textContent='Processando…';btn.style.pointerEvents='none';
+  try{
+    let card_token=null;
+    if(method==='credit_card'||method==='card') card_token=await tokenizeCard();
+    const payload={plan:key,cycle,founder,
+      method:(method==='card'?'credit_card':method),
+      card_token,
+      customer:{
+        name:document.getElementById('resp').value,
+        email:document.getElementById('email').value,
+        document:document.getElementById('cnpj').value,
+        type:'company',
+      }};
+    const r=await fetch(PAGARME.fnUrl,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await r.json();
+    if(!r.ok) throw new Error(data?.error||'Falha no pagamento.');
+
+    // PIX: mostra QR real retornado pela Pagar.me
+    if(data.pix){
+      const box=document.querySelector('.pay-panel[data-pay="pix"] .pix-box');
+      box.innerHTML='<p style="font-weight:600;margin-bottom:12px">Escaneie para pagar via PIX</p>'+
+        (data.pix.qr_code_url?`<img src="${data.pix.qr_code_url}" alt="QR PIX" style="width:170px;margin:0 auto 12px">`:'')+
+        `<div class="pix-code">${data.pix.qr_code||''}</div>`+
+        '<p style="font-size:.82rem;color:var(--muted);margin-top:10px">Assim que o pagamento for identificado, o acesso é liberado.</p>';
+      document.querySelector('.pay-tab[data-pay="pix"]')?.click();
+      btn.textContent='Aguardando pagamento PIX…';return;
+    }
+    // Boleto: mostra o link
+    if(data.boleto){
+      const box=document.querySelector('.pay-panel[data-pay="boleto"]');
+      box.innerHTML=`<p style="margin-bottom:12px">Seu boleto foi gerado.</p><a class="btn btn-primary" href="${data.boleto.pdf||data.boleto.url}" target="_blank" rel="noopener">Abrir boleto →</a>`;
+      document.querySelector('.pay-tab[data-pay="boleto"]')?.click();
+      btn.textContent='Aguardando compensação…';return;
+    }
+    // Cartão / assinatura aprovados
+    if(data.status==='paid'||data.status==='active'||data.status==='processing'){
+      window.location.href='assinatura-confirmada.html';return;
+    }
+    throw new Error('Pagamento não confirmado ('+(data.status||'sem status')+').');
+  }catch(err){
+    alert('Não foi possível concluir: '+err.message);
+    btn.textContent='Finalizar assinatura →';btn.style.pointerEvents='';
+  }
 });
 render();
 </script>

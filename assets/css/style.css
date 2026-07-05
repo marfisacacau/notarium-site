@@ -43,7 +43,7 @@
 
 /* ---------- Reset ---------- */
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:hidden}
 body{
   margin:0;font-family:"Inter",system-ui,sans-serif;color:var(--text);
   background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;

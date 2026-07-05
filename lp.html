@@ -758,11 +758,21 @@ document.getElementById('menuToggle').addEventListener('click', () => {
   header.classList.toggle('nav-mobile-open');
 });
 
-// Reveal on scroll
+// Reveal on scroll — escalonado por grupo de seção
 const revealEls = document.querySelectorAll('.reveal');
+revealEls.forEach((el, i) => {
+  const siblings = Array.from(el.parentElement.querySelectorAll('.reveal'));
+  const idx = siblings.indexOf(el);
+  if(idx > 0) el.style.transitionDelay = (idx * 80) + 'ms';
+});
 const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-}, {threshold:0.1, rootMargin:'0px 0px -50px 0px'});
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, {threshold:0.08, rootMargin:'0px 0px -90px 0px'});
 revealEls.forEach(el => io.observe(el));
 
 // Calculadora

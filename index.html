@@ -204,7 +204,7 @@
 <section class="section" style="padding-top:0">
   <div class="wrap">
     <div class="anchor-bar reveal">
-      <p>O mercado cobra <em>por pessoa, por curso avulso</em>: Subscrevo cobra R$&nbsp;215–R$&nbsp;600 por funcionário por curso; CNB/SP cobra R$&nbsp;175–R$&nbsp;1.650. <em>Na Notarium, sua serventia inteira — catálogo completo, sempre atualizado — a partir de R$&nbsp;199/mês.</em></p>
+      <p>Um curso avulso de compliance no mercado custa <em>de R$&nbsp;215 a R$&nbsp;600 por funcionário</em> — sem renovação, sem trilha, sem relatório para a Corregedoria. <em>Na Notarium, sua serventia inteira — catálogo completo, sempre atualizado — a partir de R$&nbsp;199/mês.</em></p>
     </div>
   </div>
 </section>
@@ -364,13 +364,11 @@
         <a href="cadastro.html" class="btn btn-lime" id="calcCTA">Garantir minha vaga <span class="arrow">→</span></a>
         <a href="#faq" class="btn btn-ghost">Tenho dúvidas</a>
       </div>
-
-      <div class="calc-ferc">
-        <label>
-          <input type="checkbox" id="fercCheck" onchange="updateCalc()">
-          <span>Minha serventia é deficitária (receita ≤&nbsp;R$&nbsp;21.073/mês — FERC). Quero ver o preço social.</span>
-        </label>
+      <p style="font-size:.75rem;color:var(--muted,#888);margin-top:14px">Recebeu um link de convite? <a href="#" id="refToggle" style="color:#133E7C;text-decoration:underline">Insira seu código aqui.</a></p>
+      <div id="refBox" style="display:none;margin-top:10px">
+        <input type="text" id="refInput" placeholder="Código de convite" style="border:1px solid #ddd;border-radius:8px;padding:10px 14px;font-size:.88rem;width:100%;max-width:280px;box-sizing:border-box">
       </div>
+
     </div>
   </div>
 </section>
@@ -411,7 +409,6 @@
     </div>
     <div class="faq-grid">
       <div class="qa reveal"><button>Quantos funcionários posso cadastrar?<span class="ic">+</span></button><div class="ans"><p>Todos. O plano é por assento cadastrado (funcionário com login). A fórmula é R$&nbsp;199 fixo para até 2 funcionários, +R$&nbsp;50 por funcionário a partir do 3º. O titular é o administrador e não conta como assento. Serventias com mais de 30 funcionários entram em contato para proposta Enterprise.</p></div></div>
-      <div class="qa reveal"><button>O que é o preço FERC / social?<span class="ic">+</span></button><div class="ans"><p>Serventias deficitárias com receita total mensal até R$&nbsp;21.073 (parâmetro FERC) têm direito ao preço social: R$&nbsp;199/mês fixo independente do número de funcionários. Basta marcar a opção na calculadora — a confirmação é feita no cadastro.</p></div></div>
       <div class="qa reveal"><button>Por que os cursos são em texto, e não em vídeo?<span class="ic">+</span></button><div class="ans"><p>Porque o aprendizado precisa caber no expediente. Texto com casos e quiz é lido entre dois atendimentos, em 5–10 minutos, é pesquisável e gera evidência auditável. Vídeo exige parar o balcão — e ninguém o reassiste.</p></div></div>
       <div class="qa reveal"><button>Como funciona a evidência para a correição?<span class="ic">+</span></button><div class="ans"><p>Cada conclusão gera um certificado com hash SHA-256 de validação pública. O painel do titular consolida tudo num relatório PDF com QR Code — a Corregedoria escaneia e confere cada certificado online. Esse documento é exatamente o que os arts. 94 (LGPD) e 144 (PLD/FT) do CNN exigem arquivar.</p></div></div>
       <div class="qa reveal"><button>O conteúdo serve para serventias de qualquer estado?<span class="ic">+</span></button><div class="ans"><p>Sim. As obrigações de capacitação são federais (Provimentos CNJ válidos em todas as UFs), então o compliance atende o Brasil inteiro. O conteúdo técnico estadual é adicionado por UF conforme a expansão.</p></div></div>
@@ -477,36 +474,25 @@
 
 <script>
 // ── Calculadora ──────────────────────────────────────
-function calcPrice(n, ferc) {
-  if (ferc) return 199;
+function calcPrice(n) {
   if (n <= 2) return 199;
   return 199 + 50 * (n - 2);
 }
 
 function updateCalc() {
   const n    = parseInt(document.getElementById('calcSlider').value);
-  const ferc = document.getElementById('fercCheck').checked;
-
   document.getElementById('calcNum').textContent = n;
 
-  const full    = calcPrice(n, ferc);
+  const full    = calcPrice(n);
   const launch  = Math.round(full * 0.80);
   const isEnt   = n >= 31;
 
-  const resultEl  = document.getElementById('calcResult');
   const priceVal  = document.getElementById('priceVal');
   const priceFull = document.getElementById('priceFull');
   const priceSub  = document.getElementById('priceSub');
   const detailEl  = document.getElementById('calcDetail');
   const badgeEl   = document.getElementById('calcBadge');
   const ctaEl     = document.getElementById('calcCTA');
-  const hintEl    = document.getElementById('calcHint');
-
-  if (ferc) {
-    hintEl.textContent = 'Preço social FERC aplicado — serventia deficitária (receita ≤ R$ 21.073/mês).';
-  } else {
-    hintEl.textContent = 'O titular não conta — só os funcionários com login.';
-  }
 
   if (isEnt) {
     priceVal.textContent = 'Enterprise';
@@ -519,29 +505,43 @@ function updateCalc() {
     return;
   }
 
-  if (ferc) {
-    priceVal.textContent = 'R$ 199';
-    priceFull.style.display = 'none';
-    priceSub.textContent = 'Preço social — catálogo completo incluído';
-    badgeEl.textContent = 'Tier FERC';
-    detailEl.innerHTML = 'Serventia deficitária: preço fixo de <b>R$ 199/mês</b> independente do número de funcionários.';
-  } else {
-    priceFull.style.display = 'block';
-    priceFull.textContent = 'De R$ ' + full.toLocaleString('pt-BR') + '/mês';
-    priceVal.textContent = 'R$ ' + launch.toLocaleString('pt-BR');
-    priceSub.textContent = '−20% lançamento · primeiras 50 serventias';
-    badgeEl.textContent = '−20% lançamento';
+  priceFull.style.display = 'block';
+  priceFull.textContent = 'De R$ ' + full.toLocaleString('pt-BR') + '/mês';
+  priceVal.textContent = 'R$ ' + launch.toLocaleString('pt-BR');
+  priceSub.textContent = '−20% lançamento · primeiras 50 serventias';
+  badgeEl.textContent = '−20% lançamento';
 
-    if (n <= 2) {
-      detailEl.innerHTML = 'Base: <b>R$ 199/mês</b> (até 2 funcionários). Com desconto de lançamento: <b>R$ ' + launch + '/mês</b>.';
-    } else {
-      detailEl.innerHTML = 'R$ 199 base + R$ 50 × ' + (n-2) + ' func. adicionais = R$ ' + full + '/mês. Com desconto: <b>R$ ' + launch + '/mês</b> no 1º ano.';
-    }
-    ctaEl.textContent = 'Garantir minha vaga →';
-    ctaEl.href = 'cadastro.html';
+  if (n <= 2) {
+    detailEl.innerHTML = 'Base: <b>R$ 199/mês</b> (até 2 funcionários). Com desconto de lançamento: <b>R$ ' + launch + '/mês</b>.';
+  } else {
+    detailEl.innerHTML = 'R$ 199 base + R$ 50 × ' + (n-2) + ' func. adicionais = R$ ' + full + '/mês. Com desconto: <b>R$ ' + launch + '/mês</b> no 1º ano.';
   }
+  ctaEl.textContent = 'Garantir minha vaga →';
+  ctaEl.href = 'cadastro.html';
 }
 updateCalc();
+
+// ── Ref/invite code ──────────────────────────────────
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const ref = params.get('ref');
+  const refToggle = document.getElementById('refToggle');
+  const refBox = document.getElementById('refBox');
+  const refInput = document.getElementById('refInput');
+  function applyRef(code){
+    if(!code) return;
+    document.querySelectorAll('a[href="cadastro.html"]').forEach(a=>{
+      a.href = 'cadastro.html?ref=' + encodeURIComponent(code);
+    });
+  }
+  if(ref){ applyRef(ref); refInput.value = ref; }
+  refToggle.addEventListener('click',function(e){
+    e.preventDefault();
+    refBox.style.display = refBox.style.display==='none' ? 'block' : 'none';
+    if(refBox.style.display!=='none') refInput.focus();
+  });
+  refInput.addEventListener('input',function(){ applyRef(this.value.trim()); });
+})();
 
 // ── Header scroll ────────────────────────────────────
 const header=document.getElementById('header');

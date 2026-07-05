@@ -309,6 +309,31 @@
 /* reveal */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .reveal.in{opacity:1;transform:none}
+
+/* ── Mobile ── */
+@media(max-width:768px){
+  .lp-hero{padding:110px 0 80px}
+  .lp-hero h1{font-size:clamp(1.8rem,7vw,2.6rem)}
+  .lp-hero-sub{font-size:1rem;margin-top:18px}
+  .lp-hero-trust{margin-top:22px}
+  .lp-hero-cta{flex-direction:column;gap:10px;margin-top:28px}
+  .lp-hero-cta .btn,.lp-hero-cta a{width:100%;text-align:center;justify-content:center}
+  .hero-pill{white-space:normal;font-size:.74rem;padding:6px 12px}
+
+  .lp-section{padding:72px 0}
+
+  .lp-proof .wrap{flex-direction:column;align-items:flex-start;gap:20px}
+  .lp-proof-stats{gap:28px}
+  .lp-proof-stats .n{font-size:1.5rem}
+
+  .lp-calc-inner{padding:32px 24px}
+  .lp-calc-price .val{font-size:clamp(3.5rem,14vw,5rem)}
+  .lp-calc-price .curr{font-size:1rem;margin-top:.65rem}
+
+  .lp-cnj-form{padding:24px 18px}
+
+  .lp-final-inner h2{font-size:clamp(1.6rem,6vw,2.2rem)}
+}
 </style>
 </head>
 <body>
@@ -598,32 +623,40 @@
     </div>
     <div class="lp-faq-wrap faq-grid">
       <div class="qa reveal">
-        <button onclick="toggleQa(this)">O que está incluído no plano? <span class="ic">+</span></button>
-        <div class="ans"><p>Acesso completo às trilhas de desenvolvimento por cargo, cursos avulsos, atualizações contínuas sobre legislação e provimentos, registros de aprendizagem, certificados e histórico das capacitações realizadas por cada integrante da equipe.</p></div>
+        <button onclick="toggleQa(this)">Quantos funcionários posso cadastrar? <span class="ic">+</span></button>
+        <div class="ans"><p>Todos. O plano é por assento cadastrado (funcionário com login). A fórmula é R$&nbsp;199 fixo para até 2 funcionários, +R$&nbsp;50 por funcionário a partir do 3º. O titular é o administrador e não conta como assento. Serventias com mais de 30 funcionários entram em contato para proposta Enterprise.</p></div>
       </div>
       <div class="qa reveal">
-        <button onclick="toggleQa(this)">Quem pode acessar os cursos? <span class="ic">+</span></button>
-        <div class="ans"><p>Todos os integrantes da equipe da serventia — titulares, interinos, substitutos, escreventes e auxiliares — dentro do número de assentos contratados. O titular conta como administrador e não é um assento pago.</p></div>
+        <button onclick="toggleQa(this)">O que está incluído no plano? <span class="ic">+</span></button>
+        <div class="ans"><p>Acesso completo às trilhas de desenvolvimento por cargo, cursos avulsos, atualizações contínuas sobre legislação e provimentos, registros de aprendizagem, certificados e histórico das capacitações realizadas por cada integrante da equipe.</p></div>
       </div>
       <div class="qa reveal">
         <button onclick="toggleQa(this)">Como funciona a trilha de desenvolvimento? <span class="ic">+</span></button>
         <div class="ans"><p>Cada integrante percorre uma trilha compatível com seu momento profissional, dos fundamentos aos temas avançados, com atividades conectadas à rotina real da serventia.</p></div>
       </div>
       <div class="qa reveal">
-        <button onclick="toggleQa(this)">Os certificados têm validade para a correição? <span class="ic">+</span></button>
-        <div class="ans"><p>Sim. A NOTARIUM Academy emite certificados individuais e mantém o histórico institucional das capacitações realizadas, permitindo apresentar às Corregedorias o plano de desenvolvimento executado.</p></div>
+        <button onclick="toggleQa(this)">Por que os cursos são em texto e não em vídeo? <span class="ic">+</span></button>
+        <div class="ans"><p>Porque o aprendizado precisa caber no expediente. Texto com casos e quiz é lido entre dois atendimentos, em 5–10 minutos, é pesquisável e gera evidência auditável. Vídeo exige parar o balcão — e ninguém o reassiste.</p></div>
+      </div>
+      <div class="qa reveal">
+        <button onclick="toggleQa(this)">Como funciona a evidência para a correição? <span class="ic">+</span></button>
+        <div class="ans"><p>Cada conclusão gera um certificado com hash SHA-256 de validação pública. O painel do titular consolida tudo num relatório PDF com QR Code — a Corregedoria escaneia e confere cada certificado online. O certificado atende integralmente ao art. 94, V, do CNN — Prov. CNJ 149/2023 (LGPD) — e ao art. 143, §1º, I e art. 144, §2º, III do CNN — Prov. CNJ 161/2024 (PLD/FT). Sem lista de presença em papel.</p></div>
       </div>
       <div class="qa reveal">
         <button onclick="toggleQa(this)">E se a legislação mudar após eu concluir um curso? <span class="ic">+</span></button>
         <div class="ans"><p>Os conteúdos são revisados e atualizados continuamente. Sempre que a legislação, os provimentos ou a prática mudam, a Academy incorpora essas atualizações e sinaliza aos alunos os pontos que evoluíram.</p></div>
       </div>
       <div class="qa reveal">
-        <button onclick="toggleQa(this)">Posso testar antes de assinar? <span class="ic">+</span></button>
-        <div class="ans"><p>Sim. Fale com nossa equipe para conhecer a plataforma e as trilhas antes de contratar o plano.</p></div>
+        <button onclick="toggleQa(this)">O conteúdo serve para serventias de qualquer estado? <span class="ic">+</span></button>
+        <div class="ans"><p>Sim. As obrigações de capacitação são federais (Provimentos CNJ válidos em todas as UFs), então o compliance atende o Brasil inteiro. O conteúdo técnico estadual é adicionado por UF conforme a expansão.</p></div>
       </div>
       <div class="qa reveal">
-        <button onclick="toggleQa(this)">Por que os cursos ficam disponíveis mesmo depois que o colaborador conclui o treinamento? <span class="ic">+</span></button>
-        <div class="ans"><p>Porque aprender uma vez não é suficiente. Décadas de pesquisa em ciência cognitiva mostram que o conhecimento se consolida com <em>revisitação espaçada</em> (spacing effect), documentado desde Ebbinghaus (1885) e confirmado por trabalhos como Roediger &amp; Karpicke (2006) e a revisão de Dunlosky et al. (2013). Manter o conteúdo permanentemente acessível permite que o profissional retorne sempre que precisar, transformando o curso em referência ativa de trabalho — e não em um evento pontual.</p></div>
+        <button onclick="toggleQa(this)">Posso testar antes de assinar? <span class="ic">+</span></button>
+        <div class="ans"><p>Pode. Ao se cadastrar você recebe acesso gratuito a 1 curso completo com certificado-amostra — para você e sua equipe sentirem o formato antes de escolher o plano.</p></div>
+      </div>
+      <div class="qa reveal">
+        <button onclick="toggleQa(this)">Por que os cursos ficam disponíveis mesmo depois de concluir? <span class="ic">+</span></button>
+        <div class="ans"><p>Porque aprender não acontece em uma única exposição ao conteúdo. Um dos resultados mais consistentes da ciência da aprendizagem é que a retenção melhora significativamente quando o conteúdo é revisitado ao longo do tempo — em vez de estudado apenas uma vez. Esse fenômeno é chamado de <em>spacing effect</em> e foi demonstrado por Ebbinghaus (1885) e confirmado por pesquisas posteriores. Quando surgir uma dúvida real na serventia, o colaborador volta ao conteúdo exato, revisa o procedimento e aplica com segurança.</p></div>
       </div>
     </div>
   </div>

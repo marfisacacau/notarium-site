@@ -311,6 +311,11 @@
 .reveal.in{opacity:1;transform:none}
 
 /* ── Mobile ── */
+@media(max-width:680px){
+  /* esconde CTA do nav — já aparece no hero */
+  .site-header .nav-actions .btn{display:none}
+  .nav .logo{height:18px}
+}
 @media(max-width:768px){
   .lp-hero{padding:110px 0 80px}
   .lp-hero h1{font-size:clamp(1.8rem,7vw,2.6rem)}

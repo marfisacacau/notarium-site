@@ -237,6 +237,26 @@
 .lp-cnj-radio{
   width:15px;height:15px;border-radius:50%;border:1.5px solid #888;display:inline-block;flex:none;
 }
+.lp-cnj-radio.nao{
+  border-color:#c0392b;background:#c0392b;position:relative;
+}
+.lp-cnj-radio.nao::after{
+  content:"";position:absolute;inset:3px;border-radius:50%;background:#fff;
+}
+.lp-cnj-download{
+  margin-top:24px;padding-top:20px;border-top:1px solid #E0E0E0;
+  display:flex;align-items:center;gap:12px;
+}
+.lp-cnj-download a{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:"Sora";font-size:.82rem;font-weight:600;
+  color:var(--royal);text-decoration:none;
+  border:1.5px solid var(--royal);border-radius:8px;
+  padding:9px 16px;transition:background .2s,color .2s;
+}
+.lp-cnj-download a:hover{background:var(--royal);color:#fff}
+.lp-cnj-download a svg{flex:none}
+.lp-cnj-download span{font-size:.75rem;color:#888;line-height:1.4}
 @media(max-width:768px){.lp-cnj-grid{grid-template-columns:1fr}}
 
 /* ── Planos / Calculadora ── */
@@ -528,9 +548,6 @@
           <p class="reveal">Mas como um ambiente permanente de desenvolvimento para equipes das serventias extrajudiciais.</p>
         </div>
       </div>
-      <div class="lp-origem-photo reveal">
-        <img src="assets/img/origem.jpg" alt="Profissional da serventia">
-      </div>
     </div>
   </div>
 </section>
@@ -585,7 +602,14 @@
         <div class="q"><strong>2.3.14.</strong> Há um plano, em documento escrito, institucional, de execução efetiva nos últimos doze meses, destinado à capacitação e/ou aperfeiçoamento e/ou treinamento periódico do responsável pela serventia e dos colaboradores?</div>
         <div class="lp-cnj-radios">
           <label><span class="lp-cnj-radio"></span> Sim</label>
-          <label><span class="lp-cnj-radio"></span> Não</label>
+          <label style="font-weight:700;color:#c0392b"><span class="lp-cnj-radio nao"></span> Não</label>
+        </div>
+        <div class="lp-cnj-download">
+          <a href="assets/docs/ata-inspecao-cnj-sp.pdf" download>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Baixar ata de inspeção — SP
+          </a>
+          <span>Formulário oficial · Corregedoria TJSP · 2026</span>
         </div>
       </div>
     </div>

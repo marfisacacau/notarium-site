@@ -5,9 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Catálogo de cursos — Notarium Academy</title>
-<meta name="description" content="Trilhas de capacitação por cargo e especialidade: Compliance, Notas, Registro Civil, SST e mais. Todos os planos dão acesso a 100% do catálogo.">
+<meta name="description" content="Trilhas de capacitação por cargo e especialidade: Compliance, Atos Notariais, Inventário Extrajudicial e mais. Todos os planos dão acesso a 100% do catálogo.">
 <link rel="icon" type="image/png" href="assets/brand/symbol-navy.png">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+.count-bar{text-align:center;margin:0 0 36px;font-size:.85rem;color:var(--muted)}
+.count-bar strong{color:var(--ink);font-weight:700}
+.cc-em-breve{font-size:.7rem;font-weight:600;color:#999;letter-spacing:.06em;text-transform:uppercase;margin-left:auto}
+</style>
 </head>
 <body>
 
@@ -24,7 +29,7 @@
       <a href="validar.html">Validar certificado</a>
     </nav>
     <div class="nav-actions">
-      <a href="#" class="nav-login">Entrar</a>
+      <a href="https://notariumacademy.com.br/login" class="nav-login">Entrar</a>
       <a href="cadastro.html" class="btn btn-lime">Testar grátis <span class="arrow">→</span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -35,106 +40,280 @@
   <div class="wrap">
     <div class="breadcrumb"><a href="index.html">Início</a> <span>/</span> Catálogo de cursos</div>
     <h1>Catálogo de cursos</h1>
-    <p>Trilhas estruturadas por cargo e especialidade — do onboarding ao avançado. Todos os planos dão acesso a 100% do catálogo, que cresce a cada novo Provimento do CNJ.</p>
+    <p>Trilhas estruturadas por especialidade — do institucional ao avançado. Todos os planos dão acesso a 100% do catálogo, que cresce a cada novo Provimento do CNJ.</p>
   </div>
 </div>
 
 <section class="catalog">
   <div class="wrap">
+
     <!-- Filtros -->
     <div class="cat-filters" id="filters">
       <button class="chip active" data-f="all">Todos</button>
       <button class="chip" data-f="compliance">Compliance</button>
       <button class="chip" data-f="notas">Notas</button>
-      <button class="chip" data-f="rcpn">Registro Civil</button>
-      <button class="chip" data-f="sst">SST</button>
+      <button class="chip" data-f="inventario">Inventário</button>
       <button class="chip" data-f="atendimento">Atendimento</button>
     </div>
 
+    <p class="count-bar"><strong id="countVisible">27</strong> cursos disponíveis</p>
+
     <div class="course-grid" id="grid">
 
+      <!-- ══ COMPLIANCE ══════════════════════════════════════ -->
+
       <article class="cc" data-cat="compliance">
-        <div class="cc-top"><span class="trilha compliance">Compliance</span><span class="nivel">Essencial</span></div>
+        <div class="cc-top"><span class="trilha compliance">Compliance</span><span class="nivel obrig">Obrigatório</span></div>
         <div class="cc-body">
-          <h3>LGPD na Prática do Balcão</h3>
-          <p>Dado sensível, base legal dos atos e minimização — com casos reais do atendimento notarial e registral.</p>
-          <div class="cc-meta"><span>⏱ <b>4h</b></span><span>📚 <b>3 lições</b></span><span class="free">Grátis</span></div>
+          <h3>PLD/FT e Comunicação ao COAF no Tabelionato de Notas</h3>
+          <p>Prevenção à lavagem de dinheiro e financiamento ao terrorismo — do balcão ao Siscoaf. Prov. 161/2024.</p>
+          <div class="cc-meta"><span>⏱ <b>2h</b></span><span>📚 <b>6 lições</b></span><span class="obrig-tag">Anual</span></div>
         </div>
       </article>
 
       <article class="cc" data-cat="compliance">
-        <div class="cc-top"><span class="trilha compliance">Compliance</span><span class="nivel">Obrigatório</span></div>
+        <div class="cc-top"><span class="trilha compliance">Compliance</span><span class="nivel">Essencial</span></div>
         <div class="cc-body">
-          <h3>PLD-FT para Serventias (Prov. 161/2024)</h3>
-          <p>Prevenção à lavagem de dinheiro: operações suspeitas, comunicação ao COAF e o papel do escrevente.</p>
-          <div class="cc-meta"><span>⏱ <b>6h</b></span><span>📑 <b>5 módulos</b></span><span>Anual</span></div>
+          <h3>CNIB na Prática — Indisponibilidade de Bens no Tabelionato de Notas</h3>
+          <p>Consulta obrigatória, restrições de venda e como orientar o cliente com segurança jurídica.</p>
+          <div class="cc-meta"><span>⏱ <b>1h30</b></span><span>📚 <b>7 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="compliance">
+        <div class="cc-top"><span class="trilha compliance">Compliance</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Prevenção à Lavagem de Dinheiro</h3>
+          <p>Fundamentos do sistema antilavagem, operações suspeitas e deveres dos notários e registradores.</p>
+          <div class="cc-meta"><span>⏱ <b>4h</b></span><span>📚 <b>1 lição</b></span></div>
         </div>
       </article>
 
       <a href="curso.html" class="cc" data-cat="compliance">
         <div class="cc-top"><span class="trilha compliance">Compliance</span><span class="nivel">Atualização</span></div>
         <div class="cc-body">
-          <h3>Provimento 222/2026 — Violência contra a Mulher</h3>
-          <p>O novo dever de acolhimento no balcão, anuência e atos protetivos. Módulo interativo da norma, com casos reais e quiz.</p>
-          <div class="cc-meta"><span>⏱ <b>37 min</b></span><span>📑 <b>11 lições</b></span><span class="free">Abrir amostra →</span></div>
+          <h3>Prevenção da violência contra a mulher: o papel da serventia</h3>
+          <p>O novo dever de acolhimento no balcão, anuência e atos protetivos. Prov. 222/2026 com casos reais.</p>
+          <div class="cc-meta"><span>⏱ <b>1h16</b></span><span>📚 <b>11 lições</b></span><span class="free">Amostra grátis →</span></div>
         </div>
       </a>
 
-      <article class="cc" data-cat="notas">
-        <div class="cc-top"><span class="trilha">Notas</span><span class="nivel">Intermediário</span></div>
+      <article class="cc" data-cat="compliance">
+        <div class="cc-top"><span class="trilha compliance">Compliance</span><span class="nivel">Atualização</span></div>
         <div class="cc-body">
-          <h3>Escrituras de Venda e Compra</h3>
-          <p>Qualificação das partes, requisitos, tributação e os erros que mais voltam na ata de correição.</p>
-          <div class="cc-meta"><span>⏱ <b>8h</b></span><span>📑 <b>7 módulos</b></span><span>Premium</span></div>
+          <h3>Violência contra a Mulher</h3>
+          <p>Deveres da serventia, sinais de vulnerabilidade, entrevista reservada e comunicação à rede de proteção.</p>
+          <div class="cc-meta"><span>⏱ <b>2h</b></span><span>📚 <b>16 lições</b></span></div>
         </div>
       </article>
+
+      <!-- ══ NOTAS — Institucional ═══════════════════════════ -->
 
       <article class="cc" data-cat="notas">
-        <div class="cc-top"><span class="trilha">Notas</span><span class="nivel">Avançado</span></div>
+        <div class="cc-top"><span class="trilha">Institucional</span><span class="nivel">Essencial</span></div>
         <div class="cc-body">
-          <h3>Procurações e Substabelecimentos</h3>
-          <p>Poderes especiais, autocontratação, revogação e cuidados com vulneráveis e idosos no balcão.</p>
-          <div class="cc-meta"><span>⏱ <b>5h</b></span><span>📑 <b>4 módulos</b></span><span>Premium</span></div>
+          <h3>O que é e como funciona um Cartório de Notas?</h3>
+          <p>Do serviço público delegado à fé pública — o papel do tabelionato na vida civil.</p>
+          <div class="cc-meta"><span>⏱ <b>30 min</b></span><span>📚 <b>7 lições</b></span></div>
         </div>
       </article>
 
-      <article class="cc" data-cat="rcpn">
-        <div class="cc-top"><span class="trilha">Registro Civil</span><span class="nivel">Essencial</span></div>
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Institucional</span><span class="nivel">Essencial</span></div>
         <div class="cc-body">
-          <h3>Habilitação e Casamento</h3>
-          <p>Do edital à celebração: prazos, impedimentos, regime de bens e registro — passo a passo.</p>
-          <div class="cc-meta"><span>⏱ <b>7h</b></span><span>📑 <b>6 módulos</b></span><span>Premium</span></div>
+          <h3>Responsabilidade Notarial</h3>
+          <p>Civil, administrativa e criminal — os limites da responsabilidade do tabelião e da equipe.</p>
+          <div class="cc-meta"><span>⏱ <b>56 min</b></span><span>📚 <b>7 lições</b></span></div>
         </div>
       </article>
 
-      <article class="cc" data-cat="rcpn">
-        <div class="cc-top"><span class="trilha">Registro Civil</span><span class="nivel">Intermediário</span></div>
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Institucional</span><span class="nivel">Essencial</span></div>
         <div class="cc-body">
-          <h3>Registro Tardio e DNV</h3>
-          <p>Nascimentos fora do prazo, Declaração de Nascido Vivo e fluxo correto para evitar exigências.</p>
-          <div class="cc-meta"><span>⏱ <b>4h</b></span><span>📑 <b>4 módulos</b></span><span>Premium</span></div>
+          <h3>Princípios Notariais</h3>
+          <p>As regras que governam cada ato: fé pública, forma, rogação, publicidade e imparcialidade.</p>
+          <div class="cc-meta"><span>⏱ <b>1h12</b></span><span>📚 <b>9 lições</b></span></div>
         </div>
       </article>
 
-      <article class="cc" data-cat="sst">
-        <div class="cc-top"><span class="trilha sst">SST</span><span class="nivel">Obrigatório</span></div>
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Institucional</span><span class="nivel">Essencial</span></div>
         <div class="cc-body">
-          <h3>CIPA e Saúde Ocupacional na Serventia</h3>
-          <p>Obrigações de segurança do trabalho aplicadas à realidade do cartório, com a NR vigente.</p>
-          <div class="cc-meta"><span>⏱ <b>3h</b></span><span>📑 <b>3 módulos</b></span><span>Anual</span></div>
+          <h3>Gratuidade no Cartório de Notas</h3>
+          <p>Quem tem direito, quais atos são gratuitos e como atender sem criar exigências indevidas.</p>
+          <div class="cc-meta"><span>⏱ <b>56 min</b></span><span>📚 <b>7 lições</b></span></div>
         </div>
       </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Institucional</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Panorama dos Atos do Tabelionato de Notas</h3>
+          <p>Todos os atos em visão geral — escrituras, procurações, atas, reconhecimento e autenticação.</p>
+          <div class="cc-meta"><span>⏱ <b>1h20</b></span><span>📚 <b>10 lições</b></span></div>
+        </div>
+      </article>
+
+      <!-- ══ NOTAS — Atos Extraprotocolares ════════════════════ -->
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Reconhecimento de Firma</h3>
+          <p>Do balcão ao livro — requisitos, modalidades, casos especiais e como evitar erros comuns.</p>
+          <div class="cc-meta"><span>⏱ <b>1h12</b></span><span>📚 <b>9 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Autenticação de Documentos</h3>
+          <p>Cópias autênticas, fé pública e os limites do ato — o que pode e o que não pode ser autenticado.</p>
+          <div class="cc-meta"><span>⏱ <b>1h12</b></span><span>📚 <b>9 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Certidões e Traslados</h3>
+          <p>O documento que viaja — certidão em breve relato, traslado, inteiro teor e seus efeitos.</p>
+          <div class="cc-meta"><span>⏱ <b>1h12</b></span><span>📚 <b>9 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Carta de Sentença Notarial</h3>
+          <p>Do processo ao livro notarial — quando e como lavrar, requisitos e efeitos.</p>
+          <div class="cc-meta"><span>⏱ <b>1h12</b></span><span>📚 <b>9 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Apostila da Convenção da Haia</h3>
+          <p>Documentos com validade internacional — quando apostilar, quais documentos e como proceder.</p>
+          <div class="cc-meta"><span>⏱ <b>1h12</b></span><span>📚 <b>9 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Essencial</span></div>
+        <div class="cc-body">
+          <h3>Transferência de Veículos</h3>
+          <p>Documentação, autenticidade, comunicação à SEFAZ, procuração e e-Notariado.</p>
+          <div class="cc-meta"><span>⏱ <b>2h15</b></span><span>📚 <b>9 módulos</b></span><span class="cc-em-breve">Em breve</span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Procuração Pública no Tabelionato de Notas</h3>
+          <p>Do mandato ao balcão — como lavrar, ler e qualificar procurações sem erro.</p>
+          <div class="cc-meta"><span>⏱ <b>1h45</b></span><span>📚 <b>7 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Espécies de Procuração</h3>
+          <p>Da estrutura da minuta aos 37 tipos específicos: imóveis, veículos, bancos, empresas, previdência e inventário.</p>
+          <div class="cc-meta"><span>⏱ <b>1h50</b></span><span>📚 <b>8 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Escritura de União Estável</h3>
+          <p>Requisitos, qualificação, estrutura, regimes de bens e casos especiais.</p>
+          <div class="cc-meta"><span>⏱ <b>2h45</b></span><span>📚 <b>11 módulos</b></span><span class="cc-em-breve">Em breve</span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="notas">
+        <div class="cc-top"><span class="trilha">Atos Extraprotocolares</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Dissolução de União Estável</h3>
+          <p>Requisitos, partilha, filhos, alimentos, nome e casos especiais na escritura de dissolução.</p>
+          <div class="cc-meta"><span>⏱ <b>2h15</b></span><span>📚 <b>9 módulos</b></span><span class="cc-em-breve">Em breve</span></div>
+        </div>
+      </article>
+
+      <!-- ══ INVENTÁRIO ══════════════════════════════════════ -->
+
+      <article class="cc" data-cat="inventario">
+        <div class="cc-top"><span class="trilha inventario">Inventário</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Inovações da Resolução CNJ 571/2024</h3>
+          <p>As cinco mudanças que todo escrevente de inventário precisa dominar — da petição à partilha.</p>
+          <div class="cc-meta"><span>⏱ <b>1h30</b></span><span>📚 <b>7 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="inventario">
+        <div class="cc-top"><span class="trilha inventario">Inventário</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Partes e Qualificação no Inventário Extrajudicial</h3>
+          <p>Quem herda, quem representa e como qualificar cada parte corretamente no balcão.</p>
+          <div class="cc-meta"><span>⏱ <b>2h15</b></span><span>📚 <b>9 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="inventario">
+        <div class="cc-top"><span class="trilha inventario">Inventário</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>O Imóvel na Partilha</h3>
+          <p>Triagem, financiamento, rural, usufruto e como tratar múltiplos imóveis na escritura.</p>
+          <div class="cc-meta"><span>⏱ <b>1h15</b></span><span>📚 <b>4 lições</b></span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="inventario">
+        <div class="cc-top"><span class="trilha inventario">Inventário</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Bens Especiais na Partilha</h3>
+          <p>Cotas, S/A, holdings, direitos autorais e heranças em aberto — como tratar na escritura.</p>
+          <div class="cc-meta"><span>⏱ <b>1h27</b></span><span>📚 <b>6 módulos</b></span><span class="cc-em-breve">Em breve</span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="inventario">
+        <div class="cc-top"><span class="trilha inventario">Inventário</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Bens Móveis e Financeiros na Partilha</h3>
+          <p>Veículos, contas bancárias, ações, FGTS, verbas trabalhistas e criptoativos.</p>
+          <div class="cc-meta"><span>⏱ <b>1h27</b></span><span>📚 <b>6 módulos</b></span><span class="cc-em-breve">Em breve</span></div>
+        </div>
+      </article>
+
+      <article class="cc" data-cat="inventario">
+        <div class="cc-top"><span class="trilha inventario">Inventário</span><span class="nivel">Intermediário</span></div>
+        <div class="cc-body">
+          <h3>Impostos na Partilha</h3>
+          <p>ITBI, ITCMD, ganho de capital, DOI e responsabilidade do notário na orientação fiscal.</p>
+          <div class="cc-meta"><span>⏱ <b>1h45</b></span><span>📚 <b>7 módulos</b></span><span class="cc-em-breve">Em breve</span></div>
+        </div>
+      </article>
+
+      <!-- ══ ATENDIMENTO ═════════════════════════════════════ -->
 
       <article class="cc" data-cat="atendimento">
         <div class="cc-top"><span class="trilha">Atendimento</span><span class="nivel">Essencial</span></div>
         <div class="cc-body">
-          <h3>Atendimento Humanizado e Acessível</h3>
-          <p>PCD, idosos e pessoas em vulnerabilidade: condutas, prioridade legal e comunicação no balcão.</p>
-          <div class="cc-meta"><span>⏱ <b>4h</b></span><span>📑 <b>4 módulos</b></span><span>Nacional</span></div>
+          <h3>Atendimento a Pessoas em Situação de Vulnerabilidade</h3>
+          <p>Identificar, acolher e proteger — sem inventar exigências, sem omitir deveres. PCD, idosos e violência.</p>
+          <div class="cc-meta"><span>⏱ <b>2h</b></span><span>📚 <b>8 lições</b></span></div>
         </div>
       </article>
 
-    </div>
+    </div><!-- /course-grid -->
 
     <!-- CTA -->
     <div class="center" style="margin-top:54px">
@@ -146,11 +325,25 @@
 
 <script>
 document.getElementById('menuToggle')?.addEventListener('click',()=>document.body.classList.toggle('nav-mobile-open'));
-const chips=document.querySelectorAll('.chip'),cards=document.querySelectorAll('.cc');
-chips.forEach(c=>c.addEventListener('click',()=>{
-  chips.forEach(x=>x.classList.remove('active'));c.classList.add('active');
-  const f=c.dataset.f;
-  cards.forEach(card=>{card.style.display=(f==='all'||card.dataset.cat===f)?'flex':'none';});
+
+const chips = document.querySelectorAll('.chip');
+const cards = document.querySelectorAll('.cc');
+const countEl = document.getElementById('countVisible');
+
+function filterCards(f) {
+  let n = 0;
+  cards.forEach(card => {
+    const show = f === 'all' || card.dataset.cat === f;
+    card.style.display = show ? 'flex' : 'none';
+    if (show) n++;
+  });
+  countEl.textContent = n;
+}
+
+chips.forEach(c => c.addEventListener('click', () => {
+  chips.forEach(x => x.classList.remove('active'));
+  c.classList.add('active');
+  filterCards(c.dataset.f);
 }));
 </script>
 </body>

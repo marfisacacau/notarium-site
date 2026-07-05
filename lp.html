@@ -107,8 +107,8 @@
 .lp-section.bg-navy .eyebrow::before{background:var(--lime)}
 
 /* ── O Desafio — duas colunas com foto ── */
-.lp-desafio-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.lp-desafio-left{display:grid;gap:28px}
+.lp-desafio-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:stretch}
+.lp-desafio-left{display:grid;gap:28px;align-content:start}
 .lp-desafio-grid h2{
   font-family:"Sora";font-weight:800;
   font-size:clamp(1.75rem,3.2vw,2.6rem);
@@ -116,8 +116,9 @@
 }
 .lp-desafio-photo{
   border-radius:18px;overflow:hidden;
-  box-shadow:var(--shadow);aspect-ratio:4/3;
+  box-shadow:var(--shadow);
   border:1px solid var(--line);
+  min-height:400px;
 }
 .lp-desafio-photo img{width:100%;height:100%;object-fit:cover;display:block}
 .lp-desafio-body{display:grid;gap:20px}
@@ -417,17 +418,17 @@
           <span class="eyebrow">O Desafio</span>
           <h2>O problema não é só a falta de conhecimento. É quando ele fica concentrado em poucas pessoas.</h2>
         </div>
-        <div class="lp-desafio-photo reveal">
-          <img src="assets/img/desafio.jpg" alt="Profissional da serventia">
+        <div class="lp-desafio-body">
+          <p class="reveal">Todos os dias chegam novos profissionais, surgem dúvidas, a legislação evolui e novos provimentos passam a fazer parte da rotina das serventias.</p>
+          <p class="reveal">Enquanto alguns integrantes da equipe estão dando os primeiros passos, outros precisam aprofundar conhecimentos ou se manter atualizados.</p>
+          <p class="reveal">O aprendizado acontece no meio da operação. As dúvidas são respondidas, os casos seguem adiante, mas nem sempre há tempo — ou contexto — para explicar os fundamentos que sustentam cada decisão.</p>
+          <p class="reveal">Muitos profissionais aprendem a resposta para um caso específico, mas não desenvolvem o raciocínio necessário para enfrentar o próximo.</p>
+          <p class="reveal">Com o tempo, o conhecimento permanece concentrado na experiência de poucas pessoas e as mesmas dúvidas continuam voltando.</p>
+          <p class="reveal">Desenvolver toda a equipe de forma estruturada, contínua e aplicável à prática é um dos maiores desafios das serventias extrajudiciais.</p>
         </div>
       </div>
-      <div class="lp-desafio-body">
-        <p class="reveal">Todos os dias chegam novos profissionais, surgem dúvidas, a legislação evolui e novos provimentos passam a fazer parte da rotina das serventias.</p>
-        <p class="reveal">Enquanto alguns integrantes da equipe estão dando os primeiros passos, outros precisam aprofundar conhecimentos ou se manter atualizados.</p>
-        <p class="reveal">O aprendizado acontece no meio da operação. As dúvidas são respondidas, os casos seguem adiante, mas nem sempre há tempo — ou contexto — para explicar os fundamentos que sustentam cada decisão.</p>
-        <p class="reveal">Muitos profissionais aprendem a resposta para um caso específico, mas não desenvolvem o raciocínio necessário para enfrentar o próximo.</p>
-        <p class="reveal">Com o tempo, o conhecimento permanece concentrado na experiência de poucas pessoas e as mesmas dúvidas continuam voltando.</p>
-        <p class="reveal">Desenvolver toda a equipe de forma estruturada, contínua e aplicável à prática é um dos maiores desafios das serventias extrajudiciais.</p>
+      <div class="lp-desafio-photo reveal">
+        <img src="assets/img/desafio.jpg" alt="Profissional da serventia">
       </div>
     </div>
     </div>

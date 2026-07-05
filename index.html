@@ -5,9 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>Notarium Academy — Educação continuada para serventias extrajudiciais</title>
-<meta name="description" content="A plataforma de capacitação contínua das serventias extrajudiciais brasileiras. Forma a equipe, atualiza a cada Provimento do CNJ e entrega à Corregedoria a evidência de cumprimento normativo — em um clique.">
+<meta name="description" content="Compliance obrigatório e formação da equipe da serventia, por assinatura — a serventia inteira, sempre atualizada. A partir de R$ 199/mês.">
 <link rel="icon" type="image/png" href="assets/brand/symbol-navy.png">
 <link rel="stylesheet" href="assets/css/style.css">
+<style>
+/* ── Bloco da inspeção CNJ ─────────────────────────── */
+.insp{background:#0b0d1a;padding:72px 0;border-top:1px solid rgba(255,255,255,.07)}
+.insp-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.insp-label{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#D5EF8E;margin-bottom:16px}
+.insp-quote{border-left:3px solid #D5EF8E;padding-left:22px;margin:0 0 24px}
+.insp-quote p{color:rgba(255,255,255,.92);font-size:1.08rem;line-height:1.7;font-style:italic;margin:0 0 10px}
+.insp-quote cite{font-size:.8rem;color:rgba(255,255,255,.45);font-style:normal}
+.insp-right h3{font-size:1.45rem;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}
+.insp-right p{color:rgba(255,255,255,.65);font-size:.95rem;line-height:1.7;margin:0 0 28px}
+.insp-dl{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;background:rgba(213,239,142,.12);border:1px solid rgba(213,239,142,.3);border-radius:8px;color:#D5EF8E;font-size:.88rem;font-weight:600;text-decoration:none;transition:.2s}
+.insp-dl:hover{background:rgba(213,239,142,.2)}
+.insp-dl svg{flex-shrink:0}
+.insp-tag{display:inline-block;padding:4px 10px;background:rgba(213,239,142,.15);border-radius:4px;font-size:.72rem;font-weight:700;letter-spacing:.06em;color:#D5EF8E;margin-bottom:18px}
+@media(max-width:768px){.insp-inner{grid-template-columns:1fr;gap:36px}}
+
+/* ── Calculadora ───────────────────────────────────── */
+.calc-wrap{max-width:720px;margin:0 auto;background:var(--card-bg,#fff);border:1px solid var(--border,#e8e8e8);border-radius:20px;padding:48px 52px;box-shadow:0 4px 32px rgba(19,19,53,.08)}
+.calc-label{font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--royal,#133E7C);margin-bottom:10px}
+.calc-q{font-size:1.25rem;font-weight:700;color:var(--ink,#131335);margin:0 0 24px;line-height:1.4}
+.calc-row{display:flex;align-items:center;gap:18px;margin-bottom:8px}
+.calc-row input[type=range]{flex:1;accent-color:#133E7C;height:6px;cursor:pointer}
+.calc-n{min-width:40px;text-align:right;font-size:1.3rem;font-weight:800;color:var(--ink,#131335)}
+.calc-hint{font-size:.78rem;color:var(--muted,#666);margin:0 0 36px}
+.calc-result{display:grid;grid-template-columns:1fr auto;align-items:end;gap:12px;padding:28px 32px;background:var(--ink,#131335);border-radius:14px;margin-bottom:14px}
+.calc-main{color:#fff}
+.calc-main .price-val{font-size:2.8rem;font-weight:900;line-height:1;color:#D5EF8E}
+.calc-main .price-mo{font-size:1rem;color:rgba(255,255,255,.6);font-weight:400}
+.calc-main .price-launch{font-size:.85rem;color:rgba(255,255,255,.5);text-decoration:line-through;margin-top:2px}
+.calc-badge{background:#D5EF8E;color:#131335;font-size:.75rem;font-weight:800;letter-spacing:.05em;padding:6px 12px;border-radius:6px;white-space:nowrap;align-self:start}
+.calc-detail{font-size:.82rem;color:var(--muted,#666);margin:0 0 28px}
+.calc-detail b{color:var(--ink,#131335)}
+.calc-cta{display:flex;gap:12px;flex-wrap:wrap}
+.calc-ferc{margin-top:20px;padding:16px 20px;border:1px solid var(--border,#e8e8e8);border-radius:10px;display:flex;align-items:start;gap:14px}
+.calc-ferc label{font-size:.85rem;color:var(--muted,#666);cursor:pointer;display:flex;align-items:start;gap:8px;line-height:1.5}
+.calc-ferc input{margin-top:3px;flex-shrink:0}
+.ferc-hide{display:none}
+.launch-bar{text-align:center;margin-bottom:28px;padding:14px 24px;background:rgba(213,239,142,.12);border:1px solid rgba(213,239,142,.35);border-radius:10px}
+.launch-bar p{margin:0;font-size:.88rem;color:var(--ink,#131335)}<br>
+.launch-bar b{color:#133E7C}
+@media(max-width:600px){.calc-wrap{padding:32px 24px}.calc-result{grid-template-columns:1fr}.calc-main .price-val{font-size:2.2rem}}
+
+/* ── Abertura fechada / beta ───────────────────────── */
+.beta{background:#131335;padding:72px 0}
+.beta-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.beta-copy .eyebrow{color:#D5EF8E}
+.beta-copy h2{color:#fff;font-size:clamp(1.8rem,3.2vw,2.5rem);margin:12px 0 16px;font-weight:800}
+.beta-copy p{color:rgba(255,255,255,.7);line-height:1.7;font-size:.98rem;margin:0 0 12px}
+.beta-list{list-style:none;padding:0;margin:24px 0 32px;display:flex;flex-direction:column;gap:10px}
+.beta-list li{display:flex;align-items:start;gap:10px;color:rgba(255,255,255,.85);font-size:.92rem}
+.beta-list .b-ic{color:#D5EF8E;flex-shrink:0;font-weight:700}
+.vagas-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:36px;text-align:center}
+.vagas-n{font-size:4rem;font-weight:900;color:#D5EF8E;line-height:1}
+.vagas-l{color:rgba(255,255,255,.55);font-size:.9rem;margin:6px 0 20px}
+.vagas-meter{height:8px;background:rgba(255,255,255,.1);border-radius:4px;overflow:hidden;margin-bottom:8px}
+.vagas-meter-fill{height:100%;width:64%;background:#D5EF8E;border-radius:4px}
+.vagas-note{font-size:.78rem;color:rgba(255,255,255,.4)}
+@media(max-width:768px){.beta-inner{grid-template-columns:1fr;gap:36px}}
+
+/* ── Âncora de valor ───────────────────────────────── */
+.anchor-bar{background:#f0f4ff;border:1px solid #d0daf0;border-radius:14px;padding:28px 32px;margin:0 0 48px}
+.anchor-bar p{margin:0;font-size:1.05rem;color:var(--ink,#131335);line-height:1.6}
+.anchor-bar em{font-style:normal;font-weight:700}
+</style>
 </head>
 <body>
 
@@ -19,17 +83,16 @@
       <img src="assets/brand/logo-navy.png"  alt="Notarium Academy" class="logo dark">
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#problemas">Desafios</a>
+      <a href="#normas">A obrigação</a>
       <a href="#solucao">Plataforma</a>
       <a href="#como">Como funciona</a>
       <a href="catalogo.html">Catálogo</a>
-      <a href="#planos">Planos</a>
-      <a href="#fundador">Sócio Fundador</a>
+      <a href="#planos">Preços</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-actions">
       <a href="#" class="nav-login">Entrar</a>
-      <a href="cadastro.html" class="btn btn-lime">Testar grátis <span class="arrow">→</span></a>
+      <a href="cadastro.html" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -39,16 +102,16 @@
 <section class="hero" id="topo">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="hero-pill"><span class="dot"></span> Programa de Educação Continuada para Cartórios</span>
-      <h1>A capacitação completa da sua serventia, <span class="hl">do balcão à correição</span>.</h1>
-      <p class="hero-sub">A Notarium Academy forma o funcionário do primeiro dia ao mais sênior, atualiza a equipe a cada novo Provimento do CNJ e entrega à Corregedoria, em um clique, a evidência documental de cumprimento normativo.</p>
+      <span class="hero-pill"><span class="dot"></span> Educação Continuada para Serventias Extrajudiciais</span>
+      <h1>Cumpra as normas e forme sua equipe — <span class="hl">em um só lugar.</span></h1>
+      <p class="hero-sub">Compliance obrigatório (LGPD, PLD/COAF) e formação da equipe, sempre atualizados a cada Provimento do CNJ. A serventia inteira, a partir de <strong>R&nbsp;199/mês</strong>.</p>
       <div class="hero-cta">
-        <a href="cadastro.html" class="btn btn-lime">Testar 1 curso grátis <span class="arrow">→</span></a>
+        <a href="#planos" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
         <a href="#como" class="btn btn-ghost-light">Ver como funciona</a>
       </div>
       <ul class="hero-trust">
-        <li><span class="ic">✦</span> Capacitação contínua — não é curso avulso</li>
-        <li><span class="ic">✦</span> Atualização a cada Provimento do CNJ</li>
+        <li><span class="ic">✦</span> Capacitação contínua — catálogo ilimitado para a equipe toda</li>
+        <li><span class="ic">✦</span> Certificado auditável para a correição</li>
         <li><span class="ic">✦</span> Curada por delegatária em exercício</li>
       </ul>
     </div>
@@ -74,6 +137,35 @@
     </div>
   </div>
 </div>
+
+<!-- ============== BLOCO DA INSPEÇÃO CNJ ============== -->
+<section class="insp" id="normas">
+  <div class="wrap">
+    <div class="insp-inner">
+      <div class="insp-left">
+        <div class="insp-label">Inspeção CNJ · jul/2026 · SP</div>
+        <blockquote class="insp-quote">
+          <p>"[A Corregedoria de SP deve] institua programa periódico de capacitação, treinamento e aperfeiçoamento em matéria de proteção de dados pessoais, voltado a <strong>delegatários, interinos, interventores e prepostos das serventias extrajudiciais</strong>, contemplando as obrigações decorrentes da <strong>Lei Geral de Proteção de Dados Pessoais</strong> e das normas nacionais aplicáveis ao <strong>serviço notarial e registral</strong>."</p>
+          <cite>Item 5.3.13 — Inspeção CNJ nº 0002142-93.2026.2.00.0000 · publicada 02/jul/2026 · DJe Edição 154/2026</cite>
+        </blockquote>
+        <blockquote class="insp-quote">
+          <p>"[A Corregedoria de SP deve] conclua a implantação da política institucional de prevenção à lavagem de dinheiro [...] com <strong>realização de capacitações periódicas</strong> e estabelecimento de mecanismos de <strong>supervisão quanto ao cumprimento das comunicações obrigatórias pelos notários e registradores</strong>."</p>
+          <cite>Item 5.3.14 — mesma inspeção</cite>
+        </blockquote>
+      </div>
+      <div class="insp-right">
+        <span class="insp-tag">⚡ Publicado esta semana</span>
+        <h3>O CNJ inspecionou SP e mandou cobrar treinamento nas serventias.</h3>
+        <p>A ata de inspeção de abril/2026, publicada em 2 de julho, determina à Corregedoria de São Paulo que institua e supervisione programas periódicos de capacitação em <strong>LGPD e PLD/FT</strong> voltados especificamente a delegatários e prepostos de serventias extrajudiciais.</p>
+        <p>Capacitar a equipe não é diferencial — é obrigação normativa, e agora há prazo e fiscalização. O certificado da Notarium é o comprovante que a correição vai pedir.</p>
+        <a href="assets/docs/inspecao-cnj-sp-2026.pdf" download class="insp-dl">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Baixar ata de inspeção (PDF · CNJ · jul/2026)
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ============== PROBLEMAS ============== -->
 <section class="section problems" id="problemas">
@@ -108,29 +200,38 @@
   </div>
 </section>
 
+<!-- ============== ÂNCORA DE VALOR ============== -->
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="anchor-bar reveal">
+      <p>O mercado cobra <em>por pessoa, por curso avulso</em>: Subscrevo cobra R$&nbsp;215–R$&nbsp;600 por funcionário por curso; CNB/SP cobra R$&nbsp;175–R$&nbsp;1.650. <em>Na Notarium, sua serventia inteira — catálogo completo, sempre atualizado — a partir de R$&nbsp;199/mês.</em></p>
+    </div>
+  </div>
+</section>
+
 <!-- ============== SOLUÇÃO (fundo escuro) ============== -->
 <section class="section solution" id="solucao">
   <div class="wrap">
     <div class="section-head reveal">
-      <span class="eyebrow">Muito além da correição</span>
-      <h2>Uma plataforma de capacitação contínua — não só prova para o juiz.</h2>
-      <p>A Notarium Academy é o sistema vivo de formação da sua equipe. Não é repositório de certificados: é onde a equipe aprende, atualiza e progride.</p>
+      <span class="eyebrow">O produto</span>
+      <h2>Um plano. A serventia inteira. Tudo incluído.</h2>
+      <p>Compliance obrigatório e formação por especialidade, atualizados a cada Provimento do CNJ. Não é repositório de certificados — é onde a equipe aprende, atualiza e progride.</p>
     </div>
     <div class="feat-grid">
       <article class="feat reveal">
+        <div class="fic">⚖️</div>
+        <h3>Compliance obrigatório — sempre renovado</h3>
+        <p>LGPD, PLD/COAF e Atendimento: os cursos que a correição exige, atualizados a cada novo Provimento. O certificado é gerado automaticamente e serve como comprovante formal para a inspeção.</p>
+      </article>
+      <article class="feat reveal">
         <div class="fic">🎓</div>
-        <h3>Formação completa por cargo</h3>
-        <p>Trilhas estruturadas (Escrevente Notarial, RCPN, Atendente, CIPA…) do onboarding ao avançado, com plano personalizado por especialidade e progressão visível em 5 níveis.</p>
+        <h3>Formação por especialidade</h3>
+        <p>Trilhas estruturadas por cargo (Escrevente Notarial, RCPN, Atendente…) do onboarding ao avançado. A equipe progride com plano personalizado — e você vê quem fez o quê em tempo real.</p>
       </article>
       <article class="feat reveal">
         <div class="fic">🔄</div>
-        <h3>Atualizações regulatórias contínuas</h3>
-        <p>A cada novo Provimento do CNJ publicamos um módulo interativo da norma — com casos práticos, banners de alerta e quiz aplicado. A equipe aprende a mudança em 20 minutos.</p>
-      </article>
-      <article class="feat reveal">
-        <div class="fic">🔎</div>
-        <h3>Gaps preenchidos na hora da dúvida</h3>
-        <p>O funcionário busca “divórcio extrajudicial” ou “DNV em registro tardio” e o sistema entrega o módulo que responde. Aprendizado durante o expediente, entre dois atendimentos.</p>
+        <h3>Atualização normativa incluída</h3>
+        <p>A cada novo Provimento publicamos um módulo interativo — com casos práticos e quiz. A equipe aprende a mudança em 20 minutos, entre dois atendimentos, sem parar o balcão.</p>
       </article>
     </div>
     <div class="insight-bar reveal">
@@ -179,8 +280,8 @@
       <ul class="panel-list">
         <li><span class="chk">✓</span><div><b>Conformidade ao vivo</b><span>Semáforo por funcionário e por obrigação normativa.</span></div></li>
         <li><span class="chk">✓</span><div><b>Renovações automáticas</b><span>Avisos a 60, 30 e 7 dias do vencimento — para você, RH e o funcionário.</span></div></li>
-        <li><span class="chk">✓</span><div><b>Lacunas detectadas</b><span>“Carlos é Escrevente RCPN há 2 anos e nunca fez Casamento e Habilitação.” Indique com 2 cliques.</span></div></li>
-        <li><span class="chk">✓</span><div><b>Dashboard auditável</b><span>Tudo logado, com hash de validação pública por certificado.</span></div></li>
+        <li><span class="chk">✓</span><div><b>Lacunas detectadas</b><span>"Carlos é Escrevente RCPN há 2 anos e nunca fez Casamento e Habilitação." Indique com 2 cliques.</span></div></li>
+        <li><span class="chk">✓</span><div><b>Relatório para a correição em 1 clique</b><span>PDF com hash SHA-256 + QR por certificado. A Corregedoria valida online sem precisar te ligar.</span></div></li>
       </ul>
     </div>
     <div class="reveal">
@@ -220,100 +321,82 @@
       <article class="why-card reveal">
         <div class="wnum">03 · EVIDÊNCIA</div>
         <h3>Prova documental, não só educação</h3>
-        <p>Cada certificado tem hash de validação pública e cada relatório é autoassinado pela curadoria acadêmica. A Corregedoria valida online, sem precisar te ligar.</p>
+        <p>Cada certificado tem hash SHA-256 de validação pública. O relatório consolidado — funcionários, cursos, datas, QR — é exatamente o documento que a inspeção pede.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============== PLANOS ============== -->
+<!-- ============== PLANOS / CALCULADORA ============== -->
 <section class="section plans" id="planos">
   <div class="wrap">
     <div class="section-head center reveal">
-      <span class="eyebrow">Planos</span>
-      <h2>Preço por porte da serventia. Catálogo completo incluso.</h2>
-      <p>Todos os planos dão acesso a 100% do catálogo. <span class="plan-note">Anual antecipado · 15% de desconto</span></p>
+      <span class="eyebrow">Preço transparente</span>
+      <h2>Quanto custa a Notarium para a sua serventia?</h2>
+      <p>Um plano só — compliance e formação completa. Preço por funcionário cadastrado. O titular é o administrador e não é assento pago.</p>
     </div>
-    <div class="plan-grid">
-      <article class="plan reveal">
-        <div class="plan-tier">FERC · Social</div>
-        <h3>Titular + 1</h3>
-        <div class="seats">Com Selo · até 2 especialidades</div>
-        <div class="price">R$ 199<small> /mês</small></div>
-        <div class="yr">R$ 1.908 / ano</div>
-        <a href="checkout.html?plano=social" class="btn btn-ghost">Ver plano</a>
-      </article>
-      <article class="plan reveal">
-        <div class="plan-tier">Iniciante</div>
-        <h3>1–5</h3>
-        <div class="seats">funcionários</div>
-        <div class="price">R$ 499<small> /mês</small></div>
-        <div class="yr">R$ 5.090 / ano</div>
-        <a href="checkout.html?plano=iniciante" class="btn btn-ghost">Começar</a>
-      </article>
-      <article class="plan featured reveal">
-        <span class="plan-badge">Mais escolhido</span>
-        <div class="plan-tier">Pequeno</div>
-        <h3>6–10</h3>
-        <div class="seats">funcionários</div>
-        <div class="price">R$ 849<small> /mês</small></div>
-        <div class="yr">R$ 8.660 / ano</div>
-        <a href="checkout.html?plano=pequeno" class="btn btn-lime">Começar</a>
-      </article>
-      <article class="plan reveal">
-        <div class="plan-tier">Médio</div>
-        <h3>11–20</h3>
-        <div class="seats">funcionários</div>
-        <div class="price">R$ 1.349<small> /mês</small></div>
-        <div class="yr">R$ 13.760 / ano</div>
-        <a href="checkout.html?plano=medio" class="btn btn-ghost">Começar</a>
-      </article>
-      <article class="plan reveal">
-        <div class="plan-tier">Grande</div>
-        <h3>21–35</h3>
-        <div class="seats">funcionários</div>
-        <div class="price">R$ 1.999<small> /mês</small></div>
-        <div class="yr">R$ 20.390 / ano</div>
-        <a href="checkout.html?plano=grande" class="btn btn-ghost">Começar</a>
-      </article>
-      <article class="plan reveal">
-        <div class="plan-tier">Mega</div>
-        <h3>36–60</h3>
-        <div class="seats">funcionários</div>
-        <div class="price">R$ 2.799<small> /mês</small></div>
-        <div class="yr">R$ 28.550 / ano</div>
-        <a href="checkout.html?plano=mega" class="btn btn-ghost">Começar</a>
-      </article>
+
+    <div class="launch-bar reveal">
+      <p>🚀 <b>Lançamento:</b> as primeiras 50 serventias entram com <b>−20% no 1º ano</b>. Escassez real — depois das vagas, vai para o preço cheio.</p>
     </div>
-    <p class="center" style="margin-top:26px;color:var(--muted);font-size:.9rem;max-width:680px">Especialidade extra: +R$ 99/mês. Trial de 1 curso grátis (<i>LGPD na Prática do Balcão</i>), com certificado-amostra para você experimentar antes de assinar.</p>
+
+    <div class="calc-wrap reveal">
+      <div class="calc-label">Calculadora de preço</div>
+      <p class="calc-q">Quantos funcionários tem a sua serventia?</p>
+      <div class="calc-row">
+        <input type="range" id="calcSlider" min="1" max="30" value="5" step="1" oninput="updateCalc()">
+        <span class="calc-n" id="calcNum">5</span>
+      </div>
+      <p class="calc-hint" id="calcHint">O titular não conta — só os funcionários com login.</p>
+
+      <div class="calc-result" id="calcResult">
+        <div class="calc-main">
+          <div class="price-launch" id="priceFull" style="display:none"></div>
+          <div><span class="price-val" id="priceVal">R$ 299</span> <span class="price-mo">/mês</span></div>
+          <div id="priceSub" style="font-size:.82rem;color:rgba(255,255,255,.5);margin-top:6px"></div>
+        </div>
+        <span class="calc-badge" id="calcBadge">−20% lançamento</span>
+      </div>
+
+      <p class="calc-detail" id="calcDetail"></p>
+
+      <div class="calc-cta">
+        <a href="cadastro.html" class="btn btn-lime" id="calcCTA">Garantir minha vaga <span class="arrow">→</span></a>
+        <a href="#faq" class="btn btn-ghost">Tenho dúvidas</a>
+      </div>
+
+      <div class="calc-ferc">
+        <label>
+          <input type="checkbox" id="fercCheck" onchange="updateCalc()">
+          <span>Minha serventia é deficitária (receita ≤&nbsp;R$&nbsp;21.073/mês — FERC). Quero ver o preço social.</span>
+        </label>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============== SÓCIO FUNDADOR ============== -->
-<section class="section founder" id="fundador">
-  <div class="wrap founder-grid">
-    <div class="reveal">
-      <span class="eyebrow">★ Programa de lançamento</span>
-      <h2>Sócio Fundador Notarium Academy</h2>
-      <p class="founder-sub">As primeiras 50 serventias que assinarem entram no programa de lançamento. Não vai abrir de novo.</p>
-      <ul class="founder-benefits">
-        <li><span class="b-ic">✓</span> 40% de desconto sobre o preço cheio mensal</li>
-        <li><span class="b-ic">✓</span> Preço travado por 24 meses — e mantido para sempre na renovação</li>
-        <li><span class="b-ic">✓</span> Selo “Sócio Fundador” em todos os certificados que sua serventia emitir</li>
-        <li><span class="b-ic">✓</span> Acesso antecipado a novos cursos (14 dias antes do público)</li>
-        <li><span class="b-ic">✓</span> Cadeira na Comissão Consultiva trimestral com a Curadora Acadêmica</li>
+<!-- ============== ABERTURA BETA ============== -->
+<section class="beta" id="beta">
+  <div class="wrap beta-inner">
+    <div class="beta-copy reveal">
+      <span class="eyebrow">★ Abertura fechada</span>
+      <h2>Começa com ex-alunos do Notarium Preparatório.</h2>
+      <p>O lançamento é para quem já conhece a curadoria — a base de serventias que se formou com a Notarium e sabe o padrão do conteúdo. Depois do grupo beta, abrimos ao mercado.</p>
+      <p>Se você chegou aqui por indicação ou pelo preparatório, é o momento certo de entrar.</p>
+      <ul class="beta-list">
+        <li><span class="b-ic">✓</span> 20% de desconto no 1º ano — válido para as primeiras 50 serventias</li>
+        <li><span class="b-ic">✓</span> Acesso imediato ao catálogo completo disponível no lançamento (~10 cursos)</li>
+        <li><span class="b-ic">✓</span> Suporte direto da curadoria durante o beta</li>
+        <li><span class="b-ic">✓</span> Voz ativa para sugerir os próximos cursos</li>
       </ul>
-      <div class="founder-cta">
-        <a href="checkout.html?plano=pequeno&fundador=1" class="btn btn-lime">Quero ser Sócio Fundador <span class="arrow">→</span></a>
-      </div>
+      <a href="cadastro.html" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
     </div>
     <div class="reveal">
-      <div class="seal-card">
-        <img src="assets/brand/selo-lime.png" alt="Selo Educação Continuada Notarium" class="selo">
-        <div class="seats-n">18</div>
-        <div class="seats-l">vagas restantes de 50</div>
-        <div class="meter"><i></i></div>
-        <span class="badge-32">⚡ 32 serventias já são Sócias Fundadoras</span>
+      <div class="vagas-card">
+        <div class="vagas-n" id="vagasN">32</div>
+        <div class="vagas-l">serventias já garantiram vaga</div>
+        <div class="vagas-meter"><div class="vagas-meter-fill"></div></div>
+        <div class="vagas-note">de 50 vagas com desconto de lançamento</div>
       </div>
     </div>
   </div>
@@ -327,11 +410,12 @@
       <h2>O que os titulares perguntam.</h2>
     </div>
     <div class="faq-grid">
+      <div class="qa reveal"><button>Quantos funcionários posso cadastrar?<span class="ic">+</span></button><div class="ans"><p>Todos. O plano é por assento cadastrado (funcionário com login). A fórmula é R$&nbsp;199 fixo para até 2 funcionários, +R$&nbsp;50 por funcionário a partir do 3º. O titular é o administrador e não conta como assento. Serventias com mais de 30 funcionários entram em contato para proposta Enterprise.</p></div></div>
+      <div class="qa reveal"><button>O que é o preço FERC / social?<span class="ic">+</span></button><div class="ans"><p>Serventias deficitárias com receita total mensal até R$&nbsp;21.073 (parâmetro FERC) têm direito ao preço social: R$&nbsp;199/mês fixo independente do número de funcionários. Basta marcar a opção na calculadora — a confirmação é feita no cadastro.</p></div></div>
       <div class="qa reveal"><button>Por que os cursos são em texto, e não em vídeo?<span class="ic">+</span></button><div class="ans"><p>Porque o aprendizado precisa caber no expediente. Texto com casos e quiz é lido entre dois atendimentos, em 5–10 minutos, é pesquisável e gera evidência auditável. Vídeo exige parar o balcão — e ninguém o reassiste.</p></div></div>
-      <div class="qa reveal"><button>O conteúdo serve para serventias de qualquer estado?<span class="ic">+</span></button><div class="ans"><p>Sim. As obrigações de capacitação de equipe são federais (Provimentos do CNJ válidos em todas as UFs), então o módulo Compliance atende o Brasil inteiro desde o primeiro dia. O conteúdo técnico estadual é adicionado por UF conforme a expansão.</p></div></div>
-      <div class="qa reveal"><button>Como funciona a evidência para a correição?<span class="ic">+</span></button><div class="ans"><p>Cada conclusão gera um certificado com hash SHA-256 de validação pública. O painel do titular consolida tudo num relatório PDF com QR Code — a Corregedoria escaneia e confere cada certificado online, sem depender de você.</p></div></div>
-      <div class="qa reveal"><button>Quem produz e assina os cursos?<span class="ic">+</span></button><div class="ans"><p>A curadoria é conduzida por delegatária em exercício, com cadeira na diretoria do CNB/SP e mais de uma década formando profissionais do setor extrajudicial. Cada relatório é autoassinado pela curadoria acadêmica.</p></div></div>
-      <div class="qa reveal"><button>Posso testar antes de assinar?<span class="ic">+</span></button><div class="ans"><p>Pode. O curso <i>LGPD na Prática do Balcão</i> é liberado gratuitamente, com certificado-amostra, para você e sua equipe sentirem o formato antes de escolher o plano.</p></div></div>
+      <div class="qa reveal"><button>Como funciona a evidência para a correição?<span class="ic">+</span></button><div class="ans"><p>Cada conclusão gera um certificado com hash SHA-256 de validação pública. O painel do titular consolida tudo num relatório PDF com QR Code — a Corregedoria escaneia e confere cada certificado online. Esse documento é exatamente o que os arts. 94 (LGPD) e 144 (PLD/FT) do CNN exigem arquivar.</p></div></div>
+      <div class="qa reveal"><button>O conteúdo serve para serventias de qualquer estado?<span class="ic">+</span></button><div class="ans"><p>Sim. As obrigações de capacitação são federais (Provimentos CNJ válidos em todas as UFs), então o compliance atende o Brasil inteiro. O conteúdo técnico estadual é adicionado por UF conforme a expansão.</p></div></div>
+      <div class="qa reveal"><button>Posso testar antes de assinar?<span class="ic">+</span></button><div class="ans"><p>Pode. Ao se cadastrar você recebe acesso gratuito a 1 curso completo com certificado-amostra — para você e sua equipe sentirem o formato antes de escolher o plano.</p></div></div>
     </div>
   </div>
 </section>
@@ -340,11 +424,11 @@
 <section class="final-cta">
   <img src="assets/img/section-cta.jpg" alt="" class="bg">
   <div class="final-inner reveal">
-    <h2>Pronto para a próxima correição?</h2>
-    <p>A evolução profissional do seu cartório começa aqui. Comece com 1 curso grátis hoje e veja a equipe aprender entre dois atendimentos.</p>
+    <h2>A próxima correição vai pedir o comprovante de treinamento.</h2>
+    <p>O CNJ inspecionou SP e mandou cobrar. A Notarium entrega o curso, o certificado e o relatório — em um clique. Comece com 1 curso grátis e veja o formato antes de assinar.</p>
     <div class="hero-cta">
-      <a href="cadastro.html" class="btn btn-lime">Testar 1 curso grátis <span class="arrow">→</span></a>
-      <a href="#fundador" class="btn btn-ghost-light">Programa Sócio Fundador</a>
+      <a href="cadastro.html" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
+      <a href="assets/docs/inspecao-cnj-sp-2026.pdf" download class="btn btn-ghost-light">Baixar ata do CNJ</a>
     </div>
   </div>
 </section>
@@ -355,7 +439,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="assets/brand/logo-white.png" alt="Notarium Academy" class="flogo">
-        <p>O padrão de desenvolvimento profissional dos cartórios. Educação continuada para serventias extrajudiciais — formação, treinamento e cursos.</p>
+        <p>O padrão de desenvolvimento profissional dos cartórios. Educação continuada para serventias extrajudiciais — compliance, formação e atualização normativa.</p>
         <div class="foot-soc">
           <a href="#" aria-label="Instagram">⌾</a>
           <a href="#" aria-label="LinkedIn">in</a>
@@ -367,15 +451,15 @@
         <h4>Plataforma</h4>
         <a href="#solucao">Como funciona</a>
         <a href="#problemas">Para quem é</a>
-        <a href="#planos">Planos e preços</a>
+        <a href="#planos">Preços</a>
         <a href="catalogo.html">Catálogo de cursos</a>
       </div>
       <div class="foot-col">
-        <h4>Programa</h4>
-        <a href="#fundador">Sócio Fundador</a>
+        <h4>Recursos</h4>
+        <a href="#normas">A obrigação normativa</a>
+        <a href="assets/docs/inspecao-cnj-sp-2026.pdf" download>Ata de Inspeção CNJ (PDF)</a>
         <a href="validar.html">Validar certificado</a>
         <a href="#faq">Perguntas frequentes</a>
-        <a href="#">Para a Corregedoria</a>
       </div>
       <div class="foot-col">
         <h4>Contato</h4>
@@ -386,26 +470,93 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 Notarium Academy Ltda · notariumacademy.com.br</span>
-      <span>Educação Continuada · Formação · Treinamento · Cursos</span>
+      <span>Educação Continuada · Compliance · Formação · Serventias Extrajudiciais</span>
     </div>
   </div>
 </footer>
 
 <script>
-// Header scroll state
+// ── Calculadora ──────────────────────────────────────
+function calcPrice(n, ferc) {
+  if (ferc) return 199;
+  if (n <= 2) return 199;
+  return 199 + 50 * (n - 2);
+}
+
+function updateCalc() {
+  const n    = parseInt(document.getElementById('calcSlider').value);
+  const ferc = document.getElementById('fercCheck').checked;
+
+  document.getElementById('calcNum').textContent = n;
+
+  const full    = calcPrice(n, ferc);
+  const launch  = Math.round(full * 0.80);
+  const isEnt   = n >= 31;
+
+  const resultEl  = document.getElementById('calcResult');
+  const priceVal  = document.getElementById('priceVal');
+  const priceFull = document.getElementById('priceFull');
+  const priceSub  = document.getElementById('priceSub');
+  const detailEl  = document.getElementById('calcDetail');
+  const badgeEl   = document.getElementById('calcBadge');
+  const ctaEl     = document.getElementById('calcCTA');
+  const hintEl    = document.getElementById('calcHint');
+
+  if (ferc) {
+    hintEl.textContent = 'Preço social FERC aplicado — serventia deficitária (receita ≤ R$ 21.073/mês).';
+  } else {
+    hintEl.textContent = 'O titular não conta — só os funcionários com login.';
+  }
+
+  if (isEnt) {
+    priceVal.textContent = 'Enterprise';
+    priceFull.style.display = 'none';
+    priceSub.textContent = '';
+    badgeEl.textContent = 'Sob medida';
+    detailEl.innerHTML = '<b>31 ou mais funcionários:</b> entre em contato para proposta personalizada.';
+    ctaEl.textContent = 'Falar com a equipe →';
+    ctaEl.href = '#';
+    return;
+  }
+
+  if (ferc) {
+    priceVal.textContent = 'R$ 199';
+    priceFull.style.display = 'none';
+    priceSub.textContent = 'Preço social — catálogo completo incluído';
+    badgeEl.textContent = 'Tier FERC';
+    detailEl.innerHTML = 'Serventia deficitária: preço fixo de <b>R$ 199/mês</b> independente do número de funcionários.';
+  } else {
+    priceFull.style.display = 'block';
+    priceFull.textContent = 'De R$ ' + full.toLocaleString('pt-BR') + '/mês';
+    priceVal.textContent = 'R$ ' + launch.toLocaleString('pt-BR');
+    priceSub.textContent = '−20% lançamento · primeiras 50 serventias';
+    badgeEl.textContent = '−20% lançamento';
+
+    if (n <= 2) {
+      detailEl.innerHTML = 'Base: <b>R$ 199/mês</b> (até 2 funcionários). Com desconto de lançamento: <b>R$ ' + launch + '/mês</b>.';
+    } else {
+      detailEl.innerHTML = 'R$ 199 base + R$ 50 × ' + (n-2) + ' func. adicionais = R$ ' + full + '/mês. Com desconto: <b>R$ ' + launch + '/mês</b> no 1º ano.';
+    }
+    ctaEl.textContent = 'Garantir minha vaga →';
+    ctaEl.href = 'cadastro.html';
+  }
+}
+updateCalc();
+
+// ── Header scroll ────────────────────────────────────
 const header=document.getElementById('header');
 const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>40);
 onScroll();window.addEventListener('scroll',onScroll,{passive:true});
 
-// Mobile menu
+// ── Mobile menu ──────────────────────────────────────
 document.getElementById('menuToggle').addEventListener('click',()=>document.body.classList.toggle('nav-mobile-open'));
 document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('nav-mobile-open')));
 
-// Reveal on scroll
+// ── Reveal on scroll ─────────────────────────────────
 const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.14});
 document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4*60)+'ms';io.observe(el);});
 
-// FAQ accordion
+// ── FAQ accordion ────────────────────────────────────
 document.querySelectorAll('.qa button').forEach(b=>b.addEventListener('click',()=>{
   const qa=b.parentElement;const open=qa.classList.contains('open');
   document.querySelectorAll('.qa').forEach(x=>{x.classList.remove('open');x.querySelector('.ans').style.maxHeight=null;});

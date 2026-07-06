@@ -9,6 +9,14 @@
 <link rel="icon" type="image/png" sizes="64x64" href="assets/brand/favicon-64.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/brand/favicon-180.png">
 <link rel="stylesheet" href="assets/css/style.css">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://marfisacacau.github.io/notarium-site/lp.html">
+<meta property="og:title" content="Notarium Academy — Desenvolvendo as equipes das serventias extrajudiciais">
+<meta property="og:description" content="Compliance obrigatório e formação da equipe da serventia, por assinatura — a serventia inteira, sempre atualizada. A partir de R$ 199/mês.">
+<meta property="og:image" content="https://marfisacacau.github.io/notarium-site/assets/brand/favicon-180.png">
+<meta property="og:site_name" content="Notarium Academy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://marfisacacau.github.io/notarium-site/assets/brand/favicon-180.png">
 <style>
 /* ── Overrides e seções novas ── */
 
@@ -170,20 +178,39 @@
 .lp-para-last{grid-column:1/-1;max-width:560px;margin:0 auto;width:100%}
 @media(max-width:680px){.lp-para-grid{grid-template-columns:1fr}.lp-para-last{grid-column:auto}}
 
-/* ── Por Que Existimos — coluna única (foto removida) ── */
-.lp-origem-grid{display:grid;grid-template-columns:1fr;gap:64px;align-items:center;max-width:720px}
+/* ── Por Que Existimos — 2 colunas: texto + card de origem ── */
+.lp-origem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;max-width:none}
 .lp-origem-body{margin-top:32px;display:grid;gap:22px}
 .lp-origem-body p{font-size:1.05rem;line-height:1.75;color:var(--muted)}
-.lp-origem-photo{
-  border-radius:20px;overflow:hidden;
-  box-shadow:var(--shadow-lg);aspect-ratio:3/4;position:relative;
+.lp-origem-card{
+  background:var(--ink);border-radius:20px;padding:44px 40px;
+  border-top:4px solid var(--lime);position:sticky;top:100px;
 }
-.lp-origem-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.lp-origem-photo::after{
-  content:"";position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(19,19,53,.35),transparent 50%);
+.lp-origem-card-label{
+  font-family:"Sora";font-weight:700;font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--lime);margin-bottom:32px;display:block;
 }
-@media(max-width:900px){.lp-origem-grid{grid-template-columns:1fr}.lp-origem-photo{display:none}}
+.lp-origem-card-quote{
+  font-family:"Sora";font-weight:700;
+  font-size:clamp(1.2rem,2.2vw,1.55rem);
+  line-height:1.35;color:#fff;letter-spacing:-.02em;
+  border:none;padding:0;margin:0;
+}
+.lp-origem-card-attribution{
+  margin-top:32px;padding-top:24px;border-top:1px solid rgba(213,239,142,.2);
+  font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.5;
+}
+@media(max-width:900px){.lp-origem-grid{grid-template-columns:1fr}.lp-origem-card{position:static}}
+
+/* ── FAQ — sem cinza, com textura sutil ── */
+.lp-section.bg-grey{
+  background:#fff;position:relative;
+}
+.lp-section.bg-grey::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:var(--pattern-lime);background-size:48px 48px;
+  opacity:.04;
+}
 
 /* ── Resultados (fundo escuro) ── */
 .lp-resultados-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:56px}
@@ -548,6 +575,16 @@
           <p class="reveal">Não como uma plataforma de cursos.</p>
           <p class="reveal">Mas como um ambiente permanente de desenvolvimento para equipes das serventias extrajudiciais.</p>
         </div>
+      </div>
+      <div class="lp-origem-card reveal">
+        <span class="lp-origem-card-label">Nossa missão</span>
+        <blockquote class="lp-origem-card-quote">
+          "Não como uma plataforma de cursos. Mas como um ambiente permanente de desenvolvimento para equipes das serventias extrajudiciais."
+        </blockquote>
+        <p class="lp-origem-card-attribution">
+          Nacida dentro de uma serventia.<br>
+          Desenvolvida para todas as serventias.
+        </p>
       </div>
     </div>
   </div>

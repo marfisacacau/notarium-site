@@ -94,7 +94,7 @@
     </nav>
     <div class="nav-actions">
       <a href="https://notariumacademy.com.br/login" class="nav-login">Entrar</a>
-      <a href="cadastro.html" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
+      <a href="https://notariumacademy.com.br/checkout" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
       <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -343,9 +343,6 @@
       <p>Um plano só — compliance e formação completa. Preço por funcionário cadastrado. O titular é o administrador e não é assento pago.</p>
     </div>
 
-    <div class="launch-bar reveal">
-      <p>🚀 <b>Lançamento:</b> as primeiras 50 serventias entram com <b>−20% no 1º ano</b>. Escassez real — depois das vagas, vai para o preço cheio.</p>
-    </div>
 
     <div class="calc-wrap reveal">
       <div class="calc-label">Calculadora de preço</div>
@@ -368,7 +365,7 @@
       <p class="calc-detail" id="calcDetail"></p>
 
       <div class="calc-cta">
-        <a href="cadastro.html" class="btn btn-lime" id="calcCTA">Garantir minha vaga <span class="arrow">→</span></a>
+        <a href="https://notariumacademy.com.br/checkout" class="btn btn-lime" id="calcCTA">Garantir minha vaga <span class="arrow">→</span></a>
         <a href="#faq" class="btn btn-ghost">Tenho dúvidas</a>
       </div>
       <p style="font-size:.75rem;color:var(--muted,#888);margin-top:14px">Recebeu um link de convite? <a href="#" id="refToggle" style="color:#133E7C;text-decoration:underline">Insira seu código aqui.</a></p>
@@ -412,7 +409,7 @@
         <li><span class="b-ic">✓</span> Suporte direto da curadoria durante o beta</li>
         <li><span class="b-ic">✓</span> Voz ativa para sugerir os próximos cursos</li>
       </ul>
-      <a href="cadastro.html" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
+      <a href="https://notariumacademy.com.br/checkout" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
     </div>
     <div class="reveal">
       <div class="vagas-card">
@@ -452,7 +449,7 @@
     <h2>A próxima correição vai pedir o comprovante de treinamento.</h2>
     <p>O CNJ inspecionou SP e mandou cobrar. A Notarium entrega o curso, o certificado e o relatório — em um clique. Comece com 1 curso grátis e veja o formato antes de assinar.</p>
     <div class="hero-cta">
-      <a href="cadastro.html" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
+      <a href="https://notariumacademy.com.br/checkout" class="btn btn-lime">Garantir minha vaga <span class="arrow">→</span></a>
       <a href="assets/docs/ata-inspecao-cnj-sp.pdf" download class="btn btn-ghost-light">Baixar ata do CNJ</a>
     </div>
   </div>
@@ -511,9 +508,8 @@ function updateCalc() {
   const n    = parseInt(document.getElementById('calcSlider').value);
   document.getElementById('calcNum').textContent = n;
 
-  const full    = calcPrice(n);
-  const launch  = Math.round(full * 0.80);
-  const isEnt   = n >= 31;
+  const full   = calcPrice(n);
+  const isEnt  = n >= 31;
 
   const priceVal  = document.getElementById('priceVal');
   const priceFull = document.getElementById('priceFull');
@@ -522,30 +518,28 @@ function updateCalc() {
   const badgeEl   = document.getElementById('calcBadge');
   const ctaEl     = document.getElementById('calcCTA');
 
+  priceFull.style.display = 'none';
+  badgeEl.style.display   = 'none';
+
   if (isEnt) {
     priceVal.textContent = 'Enterprise';
-    priceFull.style.display = 'none';
     priceSub.textContent = '';
-    badgeEl.textContent = 'Sob medida';
     detailEl.innerHTML = '<b>31 ou mais funcionários:</b> entre em contato para proposta personalizada.';
     ctaEl.textContent = 'Falar com a equipe →';
-    ctaEl.href = '#';
+    ctaEl.href = 'mailto:oi@notariumacademy.com.br';
     return;
   }
 
-  priceFull.style.display = 'block';
-  priceFull.textContent = 'De R$ ' + full.toLocaleString('pt-BR') + '/mês';
-  priceVal.textContent = 'R$ ' + launch.toLocaleString('pt-BR');
-  priceSub.textContent = '−20% lançamento · primeiras 50 serventias';
-  badgeEl.textContent = '−20% lançamento';
+  priceVal.textContent = 'R$ ' + full.toLocaleString('pt-BR');
+  priceSub.textContent = 'por mês · plano anual';
 
   if (n <= 2) {
-    detailEl.innerHTML = 'Base: <b>R$ 199/mês</b> (até 2 funcionários). Com desconto de lançamento: <b>R$ ' + launch + '/mês</b>.';
+    detailEl.innerHTML = 'Valor fixo de <b>R$ 199/mês</b> para até 2 funcionários.';
   } else {
-    detailEl.innerHTML = 'R$ 199 base + R$ 50 × ' + (n-2) + ' func. adicionais = R$ ' + full + '/mês. Com desconto: <b>R$ ' + launch + '/mês</b> no 1º ano.';
+    detailEl.innerHTML = 'R$ 199 base + R$ 50 × ' + (n-2) + ' funcionário' + (n-2>1?'s':'') + ' adiciona' + (n-2>1?'is':'l') + '.';
   }
-  ctaEl.textContent = 'Garantir minha vaga →';
-  ctaEl.href = 'cadastro.html';
+  ctaEl.textContent = 'Assinar agora →';
+  ctaEl.href = 'https://notariumacademy.com.br/checkout';
 }
 updateCalc();
 
@@ -582,8 +576,8 @@ document.getElementById('waitlistForm').addEventListener('submit', function(e){
   const refInput = document.getElementById('refInput');
   function applyRef(code){
     if(!code) return;
-    document.querySelectorAll('a[href="cadastro.html"]').forEach(a=>{
-      a.href = 'cadastro.html?ref=' + encodeURIComponent(code);
+    document.querySelectorAll('a[href*="notariumacademy.com.br/checkout"]').forEach(a=>{
+      a.href = 'https://notariumacademy.com.br/checkout?ref=' + encodeURIComponent(code);
     });
   }
   if(ref){ applyRef(ref); refInput.value = ref; }

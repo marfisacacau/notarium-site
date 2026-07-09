@@ -549,30 +549,28 @@ function updateCalc() {
 }
 updateCalc();
 
-// ── Lista de espera (Formspree) ───────────────────────
-document.getElementById('waitlistForm').addEventListener('submit', async function(e){
+// ── Lista de espera (mailto) ──────────────────────────
+document.getElementById('waitlistForm').addEventListener('submit', function(e){
   e.preventDefault();
+  const f = this;
+  const nome     = f.querySelector('[name=nome]').value.trim();
+  const email    = f.querySelector('[name=email]').value.trim();
+  const whatsapp = f.querySelector('[name=whatsapp]').value.trim();
+  const cns      = f.querySelector('[name=cns]').value.trim();
+  const body = encodeURIComponent(
+    'Nome: ' + nome + '\n' +
+    'E-mail: ' + email + '\n' +
+    (whatsapp ? 'WhatsApp: ' + whatsapp + '\n' : '') +
+    (cns      ? 'CNS: '      + cns      + '\n' : '')
+  );
+  const subject = encodeURIComponent('Lista de espera — Notarium Academy');
+  window.location.href = 'mailto:oi@notariumacademy.com.br?subject=' + subject + '&body=' + body;
   const btn = this.querySelector('button');
   const msg = document.getElementById('waitlistMsg');
-  btn.disabled = true; btn.textContent = 'Enviando…';
-  const data = new FormData(this);
-  try {
-    const r = await fetch('https://formspree.io/f/REPLACE_ME', {
-      method:'POST', body: data, headers:{Accept:'application/json'}
-    });
-    if(r.ok){
-      btn.textContent = '✓ Cadastrado!';
-      msg.textContent = 'Obrigado! Você será avisado quando abrirmos ao mercado.';
-      msg.style.display = 'block'; msg.style.color = '#133E7C';
-      this.querySelectorAll('input').forEach(i=>i.disabled=true);
-    } else {
-      throw new Error();
-    }
-  } catch {
-    btn.disabled = false; btn.textContent = 'Quero ser avisado →';
-    msg.textContent = 'Erro ao enviar. Tente novamente ou escreva para contato@notariumacademy.com.br';
-    msg.style.display = 'block'; msg.style.color = '#c00';
-  }
+  btn.textContent = '✓ Abrindo e-mail…';
+  btn.disabled = true;
+  msg.textContent = 'Seu cliente de e-mail foi aberto com os dados preenchidos. Basta enviar!';
+  msg.style.display = 'block'; msg.style.color = '#133E7C';
 });
 
 // ── Ref/invite code ──────────────────────────────────
